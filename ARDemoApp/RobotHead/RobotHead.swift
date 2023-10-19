@@ -1,6 +1,6 @@
 import RealityKit
 import ARKit
-
+// swiftlint:disable function_body_length
 class RobotHead: Entity, HasModel {
     // Default color values
     private let inactiveColor: SimpleMaterial.Color = .gray
@@ -162,3 +162,4 @@ class RobotHead: Entity, HasModel {
         return false
     }
 }
+// swiftlint:enable function_body_length

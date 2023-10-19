@@ -186,8 +186,8 @@
 				9303F6172AD8FED10038C8E6 /* ARDemoViewController+PreviewViewControllerDelegate.swift */,
 				93C44F282A976F8E00E10178 /* CollectionViewForFiltersCell.swift */,
 				9300AB722AA5E09500E4D445 /* CollectionViewForEffectsCell.swift */,
-				93FC233E2A9C7FC100128047 /* ModelTypes.swift */,
 				9349EE782AE14DEE008DC211 /* AvatarViewController.swift */,
+				93FC233E2A9C7FC100128047 /* ModelTypes.swift */,
 			);
 			path = FiltersAndEffects;
 			sourceTree = "<group>";

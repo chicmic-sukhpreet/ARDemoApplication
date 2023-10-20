@@ -15,12 +15,15 @@ class AvatarViewController: UIViewController, ARSCNViewDelegate {
     var contentNode: SCNNode?
     var morphs: [SCNGeometry] = []
     let morpher = SCNMorpher()
+    var blackBackground = true
     override func viewDidLoad() {
         super.viewDidLoad()
         sceneView.delegate = self
         sceneView.showsStatistics = true
-
-        let scene = SCNScene(named: "facial-setup-final.scn")!
+        let scene = SCNScene(named: "eyeBlink-Final.scn")!
+        if blackBackground {
+            sceneView.scene.background.contents = UIColor(white: 0.0, alpha: 0.2)
+        }
         contentNode = scene.rootNode
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -31,6 +34,9 @@ class AvatarViewController: UIViewController, ARSCNViewDelegate {
     // MARK: - ARSCNViewDelegate
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        if blackBackground {
+            sceneView.scene.background.contents = UIColor(white: 0.0, alpha: 0.2)
+        }
         resetTracking()
     }
     func resetTracking() {
@@ -45,7 +51,9 @@ class AvatarViewController: UIViewController, ARSCNViewDelegate {
     }
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         guard let faceAnchor = anchor as? ARFaceAnchor else { return }
-        sceneView.scene.background.contents = UIColor(white: 0.0, alpha: 0.2)
+        if blackBackground {
+            sceneView.scene.background.contents = UIColor(white: 0.0, alpha: 0.2)
+        }
         DispatchQueue.main.async {
             let blendShapes = faceAnchor.blendShapes
             for (key, value) in blendShapes {

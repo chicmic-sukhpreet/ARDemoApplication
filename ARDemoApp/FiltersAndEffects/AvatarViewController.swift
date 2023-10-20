@@ -19,7 +19,8 @@ class AvatarViewController: UIViewController, ARSCNViewDelegate {
         super.viewDidLoad()
         sceneView.delegate = self
         sceneView.showsStatistics = true
-        let scene = SCNScene(named: "Head_Final.scn")!
+
+        let scene = SCNScene(named: "facial-setup-final.scn")!
         contentNode = scene.rootNode
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -44,6 +45,7 @@ class AvatarViewController: UIViewController, ARSCNViewDelegate {
     }
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         guard let faceAnchor = anchor as? ARFaceAnchor else { return }
+        sceneView.scene.background.contents = UIColor(white: 0.0, alpha: 0.2)
         DispatchQueue.main.async {
             let blendShapes = faceAnchor.blendShapes
             for (key, value) in blendShapes {

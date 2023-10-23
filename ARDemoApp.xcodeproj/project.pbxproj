@@ -11,6 +11,7 @@
 		9303F6182AD8FED10038C8E6 /* ARDemoViewController+PreviewViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9303F6172AD8FED10038C8E6 /* ARDemoViewController+PreviewViewControllerDelegate.swift */; };
 		9303F61A2AD924C00038C8E6 /* ARDemoViewController+Calculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9303F6192AD924C00038C8E6 /* ARDemoViewController+Calculations.swift */; };
 		930509D92AA1BA4F008AEF1E /* Vision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 930509D82AA1BA4F008AEF1E /* Vision.framework */; };
+		9311F5832AE635BB0091D1C0 /* CIFiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9311F5822AE635BB0091D1C0 /* CIFiltersViewController.swift */; };
 		93435ADE2AE27BEE0045CC56 /* eyeBlink-Final.scn in Resources */ = {isa = PBXBuildFile; fileRef = 93435ADD2AE27BEE0045CC56 /* eyeBlink-Final.scn */; };
 		93490CCC2AD50C2B00DA031B /* robotHead.reality in Resources */ = {isa = PBXBuildFile; fileRef = 93490CCB2AD50C2B00DA031B /* robotHead.reality */; };
 		93490CCE2AD5114C00DA031B /* ARDemoViewController+CoachingOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93490CCD2AD5114C00DA031B /* ARDemoViewController+CoachingOverlayView.swift */; };
@@ -53,6 +54,7 @@
 		9303F6172AD8FED10038C8E6 /* ARDemoViewController+PreviewViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARDemoViewController+PreviewViewControllerDelegate.swift"; sourceTree = "<group>"; };
 		9303F6192AD924C00038C8E6 /* ARDemoViewController+Calculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARDemoViewController+Calculations.swift"; sourceTree = "<group>"; };
 		930509D82AA1BA4F008AEF1E /* Vision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vision.framework; path = System/Library/Frameworks/Vision.framework; sourceTree = SDKROOT; };
+		9311F5822AE635BB0091D1C0 /* CIFiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CIFiltersViewController.swift; sourceTree = "<group>"; };
 		93435ADD2AE27BEE0045CC56 /* eyeBlink-Final.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "eyeBlink-Final.scn"; sourceTree = "<group>"; };
 		93490CCB2AD50C2B00DA031B /* robotHead.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = robotHead.reality; sourceTree = "<group>"; };
 		93490CCD2AD5114C00DA031B /* ARDemoViewController+CoachingOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARDemoViewController+CoachingOverlayView.swift"; sourceTree = "<group>"; };
@@ -150,16 +152,16 @@
 				93FEE4522AA0C111001AEBD7 /* BodyTracking */,
 				93E80C9E2A95D14E00142843 /* Main.storyboard */,
 				93FC1CBD2AA7636A0068C3CE /* AnimationDemo.rcproject */,
-				93C44F1C2A97175D00E10178 /* Glass.usdz */,
 				93435ADD2AE27BEE0045CC56 /* eyeBlink-Final.scn */,
 				9349EE7A2AE14E8C008DC211 /* facial-setup-final.scn */,
+				9349EE762AE1315C008DC211 /* Head_Final.scn */,
+				93E80CAE2A95E84100142843 /* Glasses.scn */,
+				93C44F1C2A97175D00E10178 /* Glass.usdz */,
 				93C44F222A97399800E10178 /* VelvetHat.usdz */,
 				93C44F242A97518300E10178 /* Mustache.usdz */,
 				93C44F262A975C5000E10178 /* PlagueMaster.usdz */,
-				9349EE762AE1315C008DC211 /* Head_Final.scn */,
 				9349EE6E2AE1004A008DC211 /* regina blends.usdz */,
 				93490CCB2AD50C2B00DA031B /* robotHead.reality */,
-				93E80CAE2A95E84100142843 /* Glasses.scn */,
 				93E80CA12A95D15000142843 /* Assets.xcassets */,
 				93E80CA62A95D15000142843 /* Info.plist */,
 			);
@@ -189,6 +191,7 @@
 				9303F6172AD8FED10038C8E6 /* ARDemoViewController+PreviewViewControllerDelegate.swift */,
 				93C44F282A976F8E00E10178 /* CollectionViewForFiltersCell.swift */,
 				9300AB722AA5E09500E4D445 /* CollectionViewForEffectsCell.swift */,
+				9311F5822AE635BB0091D1C0 /* CIFiltersViewController.swift */,
 				9349EE782AE14DEE008DC211 /* AvatarViewController.swift */,
 				93FC233E2A9C7FC100128047 /* ModelTypes.swift */,
 			);
@@ -333,6 +336,7 @@
 				9300AB732AA5E09500E4D445 /* CollectionViewForEffectsCell.swift in Sources */,
 				93FF503F2AA8A5E00089317D /* PreviewViewController+Effects.swift in Sources */,
 				9303F61A2AD924C00038C8E6 /* ARDemoViewController+Calculations.swift in Sources */,
+				9311F5832AE635BB0091D1C0 /* CIFiltersViewController.swift in Sources */,
 				93E80CB92A962DF300142843 /* PreviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -27,6 +27,34 @@ extension ARDemoViewController {
                 }
             }
         }
+//        // Create a face detector
+//        let detector = CIDetector(ofType: CIDetectorTypeFace,
+//                                  context: filterContext,
+//                                  options: [CIDetectorAccuracy: CIDetectorAccuracyHigh])
+//        // Get an array of detected face features
+//        if let features = detector?.features(in: ciImage) as? [CIFaceFeature] {
+//            for face in features {
+//                var filteredImage = ciImage
+//                // Apply the Bump Distortion filter to the face
+//                if let bumpDistortion = CIFilter(name: "CIBumpDistortion") {
+//                    bumpDistortion.setValue(filteredImage, forKey: kCIInputImageKey)
+//                    bumpDistortion.setValue(CIVector(x: face.bounds.midX, y: face.bounds.midY),
+//                                            forKey: kCIInputCenterKey)
+//                    bumpDistortion.setValue(2000.0, forKey: kCIInputRadiusKey)
+//                    bumpDistortion.setValue(1.0, forKey: kCIInputScaleKey)
+//                    if let distortedImage = bumpDistortion.outputImage {
+//                        filteredImage = distortedImage
+//                    }
+//                }
+//                // Render the filtered image
+//                if let outputCGImage = filterContext.createCGImage(filteredImage, from: filteredImage.extent) {
+//                    DispatchQueue.main.async {
+//                        let resultImage = UIImage(cgImage: outputCGImage, scale: 1, orientation: .right)
+//                        imageViewForFilter.image = resultImage
+//                    }
+//                }
+//            }
+//        }
     }
     func getRotationForEye(withTransform transform: simd_float4x4) -> simd_quatf {
         let m23 = transform[1][2]

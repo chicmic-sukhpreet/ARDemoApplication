@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PMj-n6-AWN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oZP-Rz-AaZ">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -372,6 +372,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E2u-Eu-Vgo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4583.9694656488546" y="-32.394366197183103"/>
+        </scene>
+        <!--Filters View Controller-->
+        <scene sceneID="CwZ-cT-UPC">
+            <objects>
+                <viewController id="O1K-XA-IPc" customClass="CIFiltersViewController" customModule="ARDemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vVq-Wl-6YU">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9wF-RK-wHj">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OhV-lq-ce6">
+                                <rect key="frame" x="159" y="98" width="75" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="applyBumpDistortion:" destination="O1K-XA-IPc" eventType="touchUpInside" id="vYs-Q5-tzq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bLa-xN-267"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bLa-xN-267" firstAttribute="trailing" secondItem="OhV-lq-ce6" secondAttribute="trailing" constant="159" id="ARW-RV-PlF"/>
+                            <constraint firstAttribute="bottom" secondItem="9wF-RK-wHj" secondAttribute="bottom" id="EJv-RP-PZQ"/>
+                            <constraint firstItem="9wF-RK-wHj" firstAttribute="top" secondItem="vVq-Wl-6YU" secondAttribute="top" id="Fox-Ew-OOm"/>
+                            <constraint firstItem="9wF-RK-wHj" firstAttribute="trailing" secondItem="bLa-xN-267" secondAttribute="trailing" id="Orc-wP-sH5"/>
+                            <constraint firstItem="9wF-RK-wHj" firstAttribute="leading" secondItem="bLa-xN-267" secondAttribute="leading" id="TEe-bL-7Wq"/>
+                            <constraint firstItem="OhV-lq-ce6" firstAttribute="leading" secondItem="bLa-xN-267" secondAttribute="leading" constant="159" id="fwK-yR-pST"/>
+                            <constraint firstItem="OhV-lq-ce6" firstAttribute="top" secondItem="bLa-xN-267" secondAttribute="top" constant="39" id="s2h-Ln-9l2"/>
+                            <constraint firstItem="bLa-xN-267" firstAttribute="bottom" secondItem="OhV-lq-ce6" secondAttribute="bottom" constant="685" id="xqn-8L-hrb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="9wF-RK-wHj" id="8rf-kd-FbU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RHt-OC-P7W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5583.9694656488546" y="-32.394366197183103"/>
         </scene>
     </scenes>
     <resources>

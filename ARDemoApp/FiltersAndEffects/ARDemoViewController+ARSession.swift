@@ -51,6 +51,19 @@ extension ARDemoViewController: ARSessionDelegate {
             }
             headPreview?.isEnabled = !coachingOverlayView.isActive
             updateHeadPreviewAppearance(for: frame)
+        } else if option == .filters && selectedIndexForFilters == 11 {
+            // add effect here
+            self.label.isHidden = true
+            filterImageView.isHidden = false
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                if self.filterContext == nil {
+                    self.filterContext = CIContext()
+                }
+                let ciImage = CIImage(cvPixelBuffer: frame.capturedImage)
+                self.applyFilterToImageView(ciImage: ciImage, filterIndex: 1, imageViewForFilter: self.filterImageView)
+                self.imageWithoutEffects = UIImage(ciImage: ciImage, scale: 1, orientation: .right)
+            }
         } else {
             guard option == .effects, !isProcessingFrame else { return }
             isProcessingFrame = true

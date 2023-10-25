@@ -184,9 +184,7 @@ class ARDemoViewController: UIViewController {
         ])
         setupCoachingOverlay()
         setupAnimoji()
-        if selectedIndexForFilters == 11 {
-            setupDayAndTimeLabels()
-        }
+        resetDayAndTimeLabels()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -199,6 +197,7 @@ class ARDemoViewController: UIViewController {
         let configuration = ARFaceTrackingConfiguration()
         configuration.maximumNumberOfTrackedFaces = ARFaceTrackingConfiguration.supportedNumberOfTrackedFaces
         arView.session.run(configuration)
+        resetDayAndTimeLabels()
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -208,6 +207,16 @@ class ARDemoViewController: UIViewController {
         let data = getDataOfCurrentDay()
         self.weekDayLabel.text = data.day
         self.currentTimeLabel.text = data.time
+    }
+    func resetDayAndTimeLabels() {
+        if selectedIndexForFilters == 11 {
+            weekDayLabel.isHidden = false
+            currentTimeLabel.isHidden = false
+            setupDayAndTimeLabels()
+        } else {
+            weekDayLabel.isHidden = true
+            currentTimeLabel.isHidden = true
+        }
     }
     func setupAnimoji() {
         leftEyeBallEntity = animatedModelsForEye[0].animatedAnchor.findEntity(named: "eyeballright")
@@ -259,11 +268,14 @@ class ARDemoViewController: UIViewController {
             filterImageView.isHidden = true
             label.isHidden = false
             option = .filters
+            resetDayAndTimeLabels()
         case 1:
             collectionViewForFilters.isHidden = true
             collectionViewForEffects.isHidden = false
             filterImageView.isHidden = false
             label.isHidden = true
+            weekDayLabel.isHidden = true
+            currentTimeLabel.isHidden = true
             option = .effects
         default:
             break

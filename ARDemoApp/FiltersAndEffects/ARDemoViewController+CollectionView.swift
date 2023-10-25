@@ -106,14 +106,7 @@ extension ARDemoViewController: UICollectionViewDelegate, UICollectionViewDataSo
             } else if indexPath.item >= 7 {
                 label.text = ""
             }
-            if indexPath.item == 11 {
-                setupDayAndTimeLabels()
-                weekDayLabel.isHidden = false
-                currentTimeLabel.isHidden = false
-            } else {
-                weekDayLabel.isHidden = true
-                currentTimeLabel.isHidden = true
-            }
+            resetDayAndTimeLabels()
         } else {
             if let previousSelectedIndexPath = selectedIndexPathForEffects {
                 let previousCell = collectionView.cellForItem(at: previousSelectedIndexPath) as? CollectionViewForEffectsCell

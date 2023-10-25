@@ -40,13 +40,13 @@ extension ARDemoViewController: UICollectionViewDelegate, UICollectionViewDataSo
             } else if indexPath.item == 7 {
                 cell?.modelImage.image = UIImage(named: "eyeBall")
             } else if indexPath.item == 8 {
-                cell?.modelImage.image = UIImage(named: "stars")
+                cell?.modelImage.image = UIImage(named: "hearts")
             } else if indexPath.item == 9 {
-                cell?.modelImage.image = UIImage(named: "stars")
+                cell?.modelImage.image = UIImage(named: "ant")
             } else if indexPath.item == 10 {
-                cell?.modelImage.image = UIImage(named: "stars")
+                cell?.modelImage.image = UIImage(named: "beard")
             } else if indexPath.item == 11 {
-                cell?.modelImage.image = UIImage(named: "stars")
+                cell?.modelImage.image = UIImage(named: "dayTime")
             }
             cell?.modelImage.layer.cornerRadius = 10
             cell?.modelImage.layer.masksToBounds = true

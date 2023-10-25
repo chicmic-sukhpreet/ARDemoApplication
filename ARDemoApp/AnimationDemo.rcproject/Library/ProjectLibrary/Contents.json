@@ -63,5 +63,15 @@
     "libraryIdentifier" : "e7513c440bf19d75b81dbeea2d17d41a",
     "format" : "model",
     "displayName" : "Beating_heart.usdz"
+  },
+  {
+    "libraryIdentifier" : "02a35488439c665321bea688e3a1a123",
+    "format" : "model",
+    "displayName" : "Ant.usdz"
+  },
+  {
+    "libraryIdentifier" : "fd03ef18a2c3f98c527ab00924026da7",
+    "format" : "model",
+    "displayName" : "moustache_and_beard_hair_mesh.usdz"
   }
 ]

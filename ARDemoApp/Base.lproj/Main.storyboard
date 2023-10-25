@@ -167,6 +167,18 @@
                                     <action selector="segmentValueChanged:" destination="UJC-DF-Nj8" eventType="valueChanged" id="dDg-LS-WJF"/>
                                 </connections>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOY-Z5-xSg">
+                                <rect key="frame" x="124.66666666666669" y="371" width="144" height="95"/>
+                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="28"/>
+                                <color key="textColor" red="0.9932931263" green="1" blue="0.95884519909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSn-mD-BCj">
+                                <rect key="frame" x="153" y="486" width="87" height="68"/>
+                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="20"/>
+                                <color key="textColor" red="0.9932931263" green="1" blue="0.95884519909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RkT-av-Bwh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -178,16 +190,20 @@
                             <constraint firstItem="9G6-JB-eVD" firstAttribute="top" secondItem="PRU-sc-iAp" secondAttribute="bottom" constant="20" id="DnJ-Ee-6FU"/>
                             <constraint firstItem="PRU-sc-iAp" firstAttribute="leading" secondItem="RkT-av-Bwh" secondAttribute="leading" constant="10" id="L6k-GP-fJr"/>
                             <constraint firstAttribute="bottom" secondItem="9G6-JB-eVD" secondAttribute="bottom" constant="30" id="P1x-s2-heR"/>
+                            <constraint firstItem="vkF-wP-vP7" firstAttribute="top" secondItem="CSn-mD-BCj" secondAttribute="bottom" constant="35" id="PiE-t4-5Hw"/>
                             <constraint firstItem="PRU-sc-iAp" firstAttribute="centerX" secondItem="QRX-nE-imc" secondAttribute="centerX" id="ScZ-6m-ZnX"/>
                             <constraint firstItem="GJb-8H-07L" firstAttribute="top" secondItem="QRX-nE-imc" secondAttribute="top" id="Shd-bS-qFg"/>
                             <constraint firstItem="RkT-av-Bwh" firstAttribute="trailing" secondItem="0u4-ZC-Ys5" secondAttribute="trailing" constant="79" id="Uif-hL-Pzp"/>
                             <constraint firstAttribute="bottom" secondItem="GJb-8H-07L" secondAttribute="bottom" id="Wpm-Rj-Qqs"/>
                             <constraint firstItem="RkT-av-Bwh" firstAttribute="trailing" secondItem="PRU-sc-iAp" secondAttribute="trailing" constant="10" id="aAX-UX-9Th"/>
                             <constraint firstItem="GJb-8H-07L" firstAttribute="trailing" secondItem="RkT-av-Bwh" secondAttribute="trailing" id="aaO-Qn-2Yr"/>
+                            <constraint firstItem="CSn-mD-BCj" firstAttribute="top" secondItem="cOY-Z5-xSg" secondAttribute="bottom" constant="20" id="dFj-Ht-Jcc"/>
                             <constraint firstAttribute="bottom" secondItem="Oj8-gX-OGu" secondAttribute="bottom" id="dOL-SO-x08"/>
                             <constraint firstItem="Oj8-gX-OGu" firstAttribute="leading" secondItem="QRX-nE-imc" secondAttribute="leading" id="dZo-Ck-QIa"/>
+                            <constraint firstItem="cOY-Z5-xSg" firstAttribute="centerX" secondItem="QRX-nE-imc" secondAttribute="centerX" id="fI5-Tm-sMH"/>
                             <constraint firstItem="GJb-8H-07L" firstAttribute="leading" secondItem="RkT-av-Bwh" secondAttribute="leading" id="g9N-fH-cRz"/>
                             <constraint firstItem="0u4-ZC-Ys5" firstAttribute="leading" secondItem="RkT-av-Bwh" secondAttribute="leading" constant="78" id="ioF-IM-iDq"/>
+                            <constraint firstItem="CSn-mD-BCj" firstAttribute="centerX" secondItem="QRX-nE-imc" secondAttribute="centerX" id="nXG-yJ-w4O"/>
                             <constraint firstItem="0u4-ZC-Ys5" firstAttribute="top" secondItem="RkT-av-Bwh" secondAttribute="top" constant="313" id="nwE-l9-0wB"/>
                             <constraint firstItem="RkT-av-Bwh" firstAttribute="trailing" secondItem="2wU-7k-Vrj" secondAttribute="trailing" constant="10" id="oFZ-X1-93r"/>
                             <constraint firstItem="2wU-7k-Vrj" firstAttribute="top" secondItem="vkF-wP-vP7" secondAttribute="bottom" constant="22" id="pLU-VL-kef"/>
@@ -201,9 +217,11 @@
                         <outlet property="captureButton" destination="9G6-JB-eVD" id="jnp-6a-uCe"/>
                         <outlet property="collectionViewForEffects" destination="PRU-sc-iAp" id="d5g-Cg-ugi"/>
                         <outlet property="collectionViewForFilters" destination="2wU-7k-Vrj" id="qs0-vz-3Dh"/>
+                        <outlet property="currentTimeLabel" destination="CSn-mD-BCj" id="nln-OQ-Z0H"/>
                         <outlet property="filterImageView" destination="GJb-8H-07L" id="AwE-Qb-MYo"/>
                         <outlet property="label" destination="0u4-ZC-Ys5" id="yAy-KE-LUo"/>
                         <outlet property="segmentedControl" destination="vkF-wP-vP7" id="XzE-wa-4jW"/>
+                        <outlet property="weekDayLabel" destination="cOY-Z5-xSg" id="6Qo-ge-5qV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ea-Hh-aks" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

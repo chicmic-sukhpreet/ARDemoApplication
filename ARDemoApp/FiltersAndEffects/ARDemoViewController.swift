@@ -26,6 +26,8 @@ class ARDemoViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
     @IBOutlet var filterImageView: UIImageView!
     @IBOutlet var segmentedControl: UISegmentedControl!
+    @IBOutlet var weekDayLabel: UILabel!
+    @IBOutlet var currentTimeLabel: UILabel!
     let circularView = UIView()
     let coachingOverlayView = ARCoachingOverlayView()
     let recorder = RPScreenRecorder.shared()
@@ -104,6 +106,21 @@ class ARDemoViewController: UIViewController {
         ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadSmileGlasses(), entityName: "glasses"),
         ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadSmileGlasses(), entityName: "glasses")
     ]
+    var heartModels: [ARAnimatedModels<AnimationDemo.HeartScene>] = [
+        ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadHeartScene(), entityName: "heart"),
+        ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadHeartScene(), entityName: "heart"),
+        ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadHeartScene(), entityName: "heart")
+    ]
+    var antModels: [ARAnimatedModels<AnimationDemo.AntScene>] = [
+        ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadAntScene(), entityName: "ant"),
+        ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadAntScene(), entityName: "ant"),
+        ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadAntScene(), entityName: "ant")
+    ]
+    var beardModels: [ARAnimatedModels<AnimationDemo.BeardScene>] = [
+        ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadBeardScene(), entityName: "beard"),
+        ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadBeardScene(), entityName: "beard"),
+        ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadBeardScene(), entityName: "beard")
+    ]
     var leftEyeBallEntity: Entity?
     var rightEyeBallEntity: Entity?
     var leftEyeBrowEntity: Entity?
@@ -139,7 +156,7 @@ class ARDemoViewController: UIViewController {
             fatalError("face tracking is not supported on this device")
         }
         guard ARWorldTrackingConfiguration.supportsUserFaceTracking else {
-            fatalError("This sample code requires iOS 13 / iPad OS 13, and an iOS device with a front TrueDepth camera. Note: 2020 iPads do not support user face-tracking while world tracking.")
+            fatalError("face tracking with world tracking is not supported on this device")
         }
         collectionViewForFilters.delegate = self
         collectionViewForFilters.dataSource = self
@@ -167,6 +184,9 @@ class ARDemoViewController: UIViewController {
         ])
         setupCoachingOverlay()
         setupAnimoji()
+        if selectedIndexForFilters == 11 {
+            setupDayAndTimeLabels()
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -183,6 +203,11 @@ class ARDemoViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         arView.session.pause()
+    }
+    func setupDayAndTimeLabels() {
+        let data = getDataOfCurrentDay()
+        self.weekDayLabel.text = data.day
+        self.currentTimeLabel.text = data.time
     }
     func setupAnimoji() {
         leftEyeBallEntity = animatedModelsForEye[0].animatedAnchor.findEntity(named: "eyeballright")

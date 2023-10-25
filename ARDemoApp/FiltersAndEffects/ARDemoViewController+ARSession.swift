@@ -36,6 +36,12 @@ extension ARDemoViewController: ARSessionDelegate {
                 faceAnchor = anchor
                 updateAnimoji(withAnchor: faceAnchor)
             }
+        } else if selectedIndexForFilters == 8 {
+            updateHeartModel(anchors: anchors)
+        } else if selectedIndexForFilters == 9 {
+            updateAntModel(anchors: anchors)
+        } else if selectedIndexForFilters == 10 {
+            updateBeardModel(anchors: anchors)
         }
     }
     func session(_ session: ARSession, didUpdate frame: ARFrame) {

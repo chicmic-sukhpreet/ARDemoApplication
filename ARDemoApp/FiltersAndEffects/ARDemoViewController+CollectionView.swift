@@ -14,7 +14,10 @@ extension ARDemoViewController: UICollectionViewDelegate, UICollectionViewDataSo
             return ( (models.count +
                       animatedModelsForTongue.count +
                       animatedModelsForSmile.count +
-                      animatedModelsForEye.count) / maximumNumberOfFaceAnchors) + 1
+                      animatedModelsForEye.count +
+                      heartModels.count +
+                      antModels.count +
+                      beardModels.count) / maximumNumberOfFaceAnchors) + 2
         } else {
             return effects.count
         }
@@ -36,6 +39,14 @@ extension ARDemoViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 cell?.modelImage.image = UIImage(named: "RobotHead")
             } else if indexPath.item == 7 {
                 cell?.modelImage.image = UIImage(named: "eyeBall")
+            } else if indexPath.item == 8 {
+                cell?.modelImage.image = UIImage(named: "stars")
+            } else if indexPath.item == 9 {
+                cell?.modelImage.image = UIImage(named: "stars")
+            } else if indexPath.item == 10 {
+                cell?.modelImage.image = UIImage(named: "stars")
+            } else if indexPath.item == 11 {
+                cell?.modelImage.image = UIImage(named: "stars")
             }
             cell?.modelImage.layer.cornerRadius = 10
             cell?.modelImage.layer.masksToBounds = true
@@ -70,7 +81,7 @@ extension ARDemoViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 setupFaceTracking()
                 headPreview = nil
             }
-            if indexPath.item < 6 {
+            if indexPath.item < 6  || indexPath.item > 7 {
                 arView.environment.background = .cameraFeed()
             } else {
                 arView.environment.background = .color(.black)
@@ -92,8 +103,16 @@ extension ARDemoViewController: UICollectionViewDelegate, UICollectionViewDataSo
             } else if indexPath.item == 6 {
                 label.text = ""
                 setupCombinedTracking()
-            } else if indexPath.item == 7 {
+            } else if indexPath.item >= 7 {
                 label.text = ""
+            }
+            if indexPath.item == 11 {
+                setupDayAndTimeLabels()
+                weekDayLabel.isHidden = false
+                currentTimeLabel.isHidden = false
+            } else {
+                weekDayLabel.isHidden = true
+                currentTimeLabel.isHidden = true
             }
         } else {
             if let previousSelectedIndexPath = selectedIndexPathForEffects {

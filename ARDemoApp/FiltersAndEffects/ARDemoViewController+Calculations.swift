@@ -118,7 +118,7 @@ extension ARDemoViewController {
         var faceAnchor: ARFaceAnchor?
         label.text = "show your tongue"
         for (index, anc) in anchors.enumerated() {
-            guard let anchor = anc as? ARFaceAnchor else { return }
+            guard let anchor = anc as? ARFaceAnchor else { continue }
             faceAnchor = anchor
             guard let blendShapes = faceAnchor?.blendShapes,
                   let tongueOut = blendShapes[.tongueOut]?.floatValue
@@ -138,7 +138,7 @@ extension ARDemoViewController {
         var faceAnchor: ARFaceAnchor?
         label.text = "smile"
         for (index, anc) in anchors.enumerated() {
-            guard let anchor = anc as? ARFaceAnchor else { return }
+            guard let anchor = anc as? ARFaceAnchor else { continue }
             faceAnchor = anchor
             guard let blendShapes = faceAnchor?.blendShapes,
                   let mouthSmileLeft = blendShapes[.mouthSmileLeft]?.floatValue,
@@ -153,6 +153,24 @@ extension ARDemoViewController {
                 guard index == 0 else { continue }
                 label.text = "smile"
             }
+        }
+    }
+    func updateHeartModel(anchors: [ARAnchor]) {
+        for (index, anc) in anchors.enumerated() {
+            guard let _ = anc as? ARFaceAnchor else { continue }
+            arView.scene.anchors.append(heartModels[index].animatedAnchor)
+        }
+    }
+    func updateAntModel(anchors: [ARAnchor]) {
+        for (index, anc) in anchors.enumerated() {
+            guard let _ = anc as? ARFaceAnchor else { continue }
+            arView.scene.anchors.append(antModels[index].animatedAnchor)
+        }
+    }
+    func updateBeardModel(anchors: [ARAnchor]) {
+        for (index, anc) in anchors.enumerated() {
+            guard let _ = anc as? ARFaceAnchor else { continue }
+            arView.scene.anchors.append(beardModels[index].animatedAnchor)
         }
     }
     func updateFilters(faceAnchor: ARFaceAnchor, index: Int) {
@@ -177,5 +195,16 @@ extension ARDemoViewController {
             anchorEntity.position += positionOffsetForGlassModel
         }
         arView.scene.anchors.append(anchorEntity)
+    }
+    func getDataOfCurrentDay() -> (day: String, time: String) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        let currentDate = Date()
+        let calendar = Calendar.current
+        let dayOfWeek = calendar.component(.weekday, from: currentDate)
+        let dayString = dateFormatter.weekdaySymbols[dayOfWeek - 1]
+        dateFormatter.dateFormat = "hh:mm a"
+        let currentTimeString = dateFormatter.string(from: currentDate)
+        return (dayString, currentTimeString)
     }
 }

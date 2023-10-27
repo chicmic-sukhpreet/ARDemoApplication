@@ -155,6 +155,13 @@ extension ARDemoViewController {
             }
         }
     }
+    /*
+     Enable animation in the reality composer for an animated USDZ file:
+     https://forum.sketchfab.com/t/my-usdz-animations-not-playing-in-ar-app/43834
+     
+     By default, reality composer does not include the animations which comes with the
+     USDZ file. We have to enable it by addding behaviour to the entities in the reality composer.
+     */
     func updateHeartModel(anchors: [ARAnchor]) {
         for (index, anc) in anchors.enumerated() {
             guard let _ = anc as? ARFaceAnchor else { continue }

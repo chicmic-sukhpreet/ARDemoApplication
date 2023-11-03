@@ -29,8 +29,6 @@ class AvatarViewController: UIViewController, ARSCNViewDelegate {
         super.viewWillDisappear(animated)
         sceneView.session.pause()
     }
-
-    // MARK: - ARSCNViewDelegate
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if blackBackground {

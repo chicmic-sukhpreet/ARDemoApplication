@@ -164,19 +164,19 @@ extension ARDemoViewController {
      */
     func updateHeartModel(anchors: [ARAnchor]) {
         for (index, anc) in anchors.enumerated() {
-            guard let _ = anc as? ARFaceAnchor else { continue }
+            guard anc as? ARFaceAnchor != nil else { continue }
             arView.scene.anchors.append(heartModels[index].animatedAnchor)
         }
     }
     func updateAntModel(anchors: [ARAnchor]) {
         for (index, anc) in anchors.enumerated() {
-            guard let _ = anc as? ARFaceAnchor else { continue }
+            guard anc as? ARFaceAnchor != nil else { continue }
             arView.scene.anchors.append(antModels[index].animatedAnchor)
         }
     }
     func updateBeardModel(anchors: [ARAnchor]) {
         for (index, anc) in anchors.enumerated() {
-            guard let _ = anc as? ARFaceAnchor else { continue }
+            guard anc as? ARFaceAnchor != nil else { continue }
             arView.scene.anchors.append(beardModels[index].animatedAnchor)
         }
     }

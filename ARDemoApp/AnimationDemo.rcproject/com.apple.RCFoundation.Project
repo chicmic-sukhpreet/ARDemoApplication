@@ -1902,9 +1902,9 @@
               "title" : "faceScene",
               "viewTransform" : {
                 "cameraTransform" : [
-                  0.99926513433456421,
-                  3.0139929663164367e-07,
-                  0.038330379873514175,
+                  0.99926507472991943,
+                  3.0139926820993423e-07,
+                  0.038330376148223877,
                   0,
                   -0.0048762229271233082,
                   0.99187606573104858,
@@ -3238,7 +3238,7 @@
                 "sceneTransform" : [
                   1,
                   0,
-                  -0,
+                  0,
                   0,
                   0,
                   0,
@@ -3413,6 +3413,140 @@
                   0.088898859918117523,
                   -1.4961017313908087e-07,
                   0.71477699279785156,
+                  1
+                ],
+                "sceneTransform" : [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.99999994039535522,
+                  0,
+                  0,
+                  -0.99999994039535522,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          ],
+          "__version" : 5
+        },
+        {
+          "__content" : [
+            {
+              "arAnchorSpecification" : {
+                "name" : "face"
+              },
+              "behaviors" : [
+
+              ],
+              "gravity" : [
+                0,
+                0,
+                9.8000001907348633
+              ],
+              "identifier" : "D8A4C8D8-89FC-4E65-B26F-03D9A7DC8EF9",
+              "material" : "concrete",
+              "overrides" : {
+                "children" : {
+                  "3D17D7D2-E84E-4F78-AF3D-06B8D34479DE" : {
+                    "overrides" : {
+                      "arguments" : [
+                        [
+                          "doubleSided",
+                          {
+                            "typeName" : "Bool",
+                            "value" : true
+                          }
+                        ],
+                        [
+                          "image",
+                          {
+                            "typeName" : "String",
+                            "value" : "image:f46bd5cb84ab931872e662b391ef6e36\/%E2%80%94Pngtree%E2%80%94red%20light%20red%20light%20effect_7169448.png"
+                          }
+                        ],
+                        [
+                          "maxDimension",
+                          {
+                            "typeName" : "Double",
+                            "value" : 0.59399999999999997
+                          }
+                        ]
+                      ],
+                      "factory" : {
+                        "identifier" : "com.apple.rc.af.CoreAssetFactories.PosterAssetFactory",
+                        "version" : "1.0"
+                      },
+                      "runtimeAttributes" : [
+                        [
+                          "RuntimeIdentifier",
+                          {
+                            "typeName" : "UUID",
+                            "value" : "B723C866-94C0-47A6-BF77-6B7AB7DC0D1B"
+                          }
+                        ]
+                      ]
+                    },
+                    "transform" : {
+                      "matrix" : [
+                        0.22566796839237213,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0.22566796839237213,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0.22566796839237213,
+                        0,
+                        0.029565567150712013,
+                        0.054662451148033142,
+                        -0.020388703793287277,
+                        1
+                      ]
+                    }
+                  }
+                },
+                "factory" : null,
+                "runtimeAttributes" : [
+                  [
+                    "isAccessibilityEnabled",
+                    {
+                      "typeName" : "Bool",
+                      "value" : false
+                    }
+                  ]
+                ]
+              },
+              "physicsMode" : "grid",
+              "title" : "redSharpLens",
+              "viewTransform" : {
+                "cameraTransform" : [
+                  0.99379080533981323,
+                  -1.7893034964799881e-07,
+                  0.11126435548067093,
+                  0,
+                  0.00063862919341772795,
+                  0.99998348951339722,
+                  -0.0057028904557228088,
+                  0,
+                  -0.11126253753900528,
+                  0.0057386010885238647,
+                  0.9937744140625,
+                  0,
+                  0.0462656170129776,
+                  0.034184817224740982,
+                  0.56251788139343262,
                   1
                 ],
                 "sceneTransform" : [

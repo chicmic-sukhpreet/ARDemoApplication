@@ -116,10 +116,10 @@ class ARDemoViewController: UIViewController {
         ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadAntScene(), entityName: "ant"),
         ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadAntScene(), entityName: "ant")
     ]
-    var beardModels: [ARAnimatedModels<AnimationDemo.BeardScene>] = [
-        ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadBeardScene(), entityName: "beard"),
-        ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadBeardScene(), entityName: "beard"),
-        ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadBeardScene(), entityName: "beard")
+    var beardModels: [ARAnimatedModels<AnimationDemo.RedSharpLens>] = [
+        ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadRedSharpLens(), entityName: "lens"),
+        ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadRedSharpLens(), entityName: "lens"),
+        ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadRedSharpLens(), entityName: "lens")
     ]
     var leftEyeBallEntity: Entity?
     var rightEyeBallEntity: Entity?

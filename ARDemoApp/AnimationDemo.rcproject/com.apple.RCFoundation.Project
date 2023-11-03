@@ -3571,6 +3571,277 @@
             }
           ],
           "__version" : 5
+        },
+        {
+          "__content" : [
+            {
+              "arAnchorSpecification" : {
+                "name" : "face"
+              },
+              "behaviors" : [
+
+              ],
+              "gravity" : [
+                0,
+                0,
+                9.8000001907348633
+              ],
+              "identifier" : "B7C37250-072D-4EE9-AF41-3C2B9F9D2BD6",
+              "material" : "concrete",
+              "overrides" : {
+                "children" : {
+                  "38ADCD46-5209-43BA-BE3A-9D867BE8BD8F" : null,
+                  "2929AAF0-188F-44D1-A0E7-D0A3BB4D1AC3" : null,
+                  "EBDCDD1E-3E81-458E-AACF-5DA9CF692AA1" : {
+                    "overrides" : {
+                      "arguments" : [
+                        [
+                          "doubleSided",
+                          {
+                            "typeName" : "Bool",
+                            "value" : true
+                          }
+                        ],
+                        [
+                          "image",
+                          {
+                            "typeName" : "String",
+                            "value" : "image:24fbc56f777c2cc15f66130903f2c981\/%E2%80%94Pngtree%E2%80%94blue%20cartoon%20anime%20vector%20big_5546222.png"
+                          }
+                        ],
+                        [
+                          "maxDimension",
+                          {
+                            "typeName" : "Double",
+                            "value" : 0.59399999999999997
+                          }
+                        ]
+                      ],
+                      "factory" : {
+                        "identifier" : "com.apple.rc.af.CoreAssetFactories.PosterAssetFactory",
+                        "version" : "1.0"
+                      },
+                      "runtimeAttributes" : [
+                        [
+                          "RuntimeIdentifier",
+                          {
+                            "typeName" : "UUID",
+                            "value" : "C0A63A49-706C-405D-A160-3443A3485149"
+                          }
+                        ]
+                      ]
+                    },
+                    "transform" : {
+                      "matrix" : [
+                        0.35826936364173889,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0.35826936364173889,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0.35826936364173889,
+                        0,
+                        0.0013194141210988164,
+                        0.054091975092887878,
+                        -0.030985277146100998,
+                        1
+                      ]
+                    }
+                  },
+                  "FED2E8DF-16C3-45D0-B222-DFFEB83E03C7" : null
+                },
+                "factory" : null,
+                "runtimeAttributes" : [
+                  [
+                    "isAccessibilityEnabled",
+                    {
+                      "typeName" : "Bool",
+                      "value" : false
+                    }
+                  ]
+                ]
+              },
+              "physicsMode" : "grid",
+              "title" : "AnimeEyes",
+              "viewTransform" : {
+                "cameraTransform" : [
+                  0.99964302778244019,
+                  -1.1920930376163597e-07,
+                  0.026718499138951302,
+                  0,
+                  0.0027533546090126038,
+                  0.99467724561691284,
+                  -0.10300251841545105,
+                  0,
+                  -0.02657628245651722,
+                  0.10303899645805359,
+                  0.99432206153869629,
+                  0,
+                  0.027288621291518211,
+                  0.094187051057815552,
+                  0.5542101263999939,
+                  1
+                ],
+                "sceneTransform" : [
+                  1,
+                  0,
+                  -0,
+                  0,
+                  0,
+                  0,
+                  0.99999994039535522,
+                  0,
+                  0,
+                  -0.99999994039535522,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          ],
+          "__version" : 5
+        },
+        {
+          "__content" : [
+            {
+              "arAnchorSpecification" : {
+                "name" : "face"
+              },
+              "behaviors" : [
+
+              ],
+              "gravity" : [
+                0,
+                0,
+                9.8000001907348633
+              ],
+              "identifier" : "F3EF7E0E-EE54-4810-A309-567B26522DC9",
+              "material" : "concrete",
+              "overrides" : {
+                "children" : {
+                  "3B45DB6E-7366-405C-A1FE-A22FF0026032" : {
+                    "overrides" : {
+                      "arguments" : [
+                        [
+                          "doubleSided",
+                          {
+                            "typeName" : "Bool",
+                            "value" : true
+                          }
+                        ],
+                        [
+                          "image",
+                          {
+                            "typeName" : "String",
+                            "value" : "image:fc8924c8e3fde40ee554c6f86d903d7b\/pngtree-blush-pink-love-anime-character-kawaii-png-image_5759184.jpeg"
+                          }
+                        ],
+                        [
+                          "maxDimension",
+                          {
+                            "typeName" : "Double",
+                            "value" : 0.59399999999999997
+                          }
+                        ]
+                      ],
+                      "factory" : {
+                        "identifier" : "com.apple.rc.af.CoreAssetFactories.PosterAssetFactory",
+                        "version" : "1.0"
+                      },
+                      "runtimeAttributes" : [
+                        [
+                          "RuntimeIdentifier",
+                          {
+                            "typeName" : "UUID",
+                            "value" : "86C052B7-0A9A-4BFC-BCC9-606A00C2B2AC"
+                          }
+                        ]
+                      ]
+                    },
+                    "transform" : {
+                      "matrix" : [
+                        0.2616972029209137,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0.2616972029209137,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0.2616972029209137,
+                        0,
+                        0.00060699885943904519,
+                        0.055518239736557007,
+                        0.0070374174974858761,
+                        1
+                      ]
+                    }
+                  }
+                },
+                "factory" : null,
+                "runtimeAttributes" : [
+                  [
+                    "isAccessibilityEnabled",
+                    {
+                      "typeName" : "Bool",
+                      "value" : false
+                    }
+                  ]
+                ]
+              },
+              "physicsMode" : "grid",
+              "title" : "AnimeBlush",
+              "viewTransform" : {
+                "cameraTransform" : [
+                  0.99979716539382935,
+                  -1.8626454334480513e-07,
+                  0.020141700282692909,
+                  0,
+                  0.00083303276915103197,
+                  0.99914473295211792,
+                  -0.041339900344610214,
+                  0,
+                  -0.02012445405125618,
+                  0.041348330676555634,
+                  0.99894207715988159,
+                  0,
+                  0.095637157559394836,
+                  0.066765032708644867,
+                  0.68205201625823975,
+                  1
+                ],
+                "sceneTransform" : [
+                  1,
+                  0,
+                  -0,
+                  0,
+                  0,
+                  0,
+                  0.99999994039535522,
+                  0,
+                  0,
+                  -0.99999994039535522,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          ],
+          "__version" : 5
         }
       ],
       "tags" : {

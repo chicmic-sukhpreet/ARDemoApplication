@@ -10,6 +10,7 @@ import ARKit
 import RealityKit
 import CoreImage
 // swiftlint:disable line_length
+// swiftlint:disable cyclomatic_complexity
 extension ARDemoViewController: ARSessionDelegate {
     func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
         guard option == .filters else { return }
@@ -87,4 +88,5 @@ extension ARDemoViewController: ARSessionDelegate {
         }
     }
 }
+// swfitlint:enable cyclomatic_complexity
 // swiftlint:enable line_length

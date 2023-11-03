@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 // swiftlint:disable line_length
+// swiftlint:disable cyclomatic_complexity
 extension ARDemoViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == collectionViewForFilters {
@@ -127,4 +128,5 @@ extension ARDemoViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: size, height: size)
     }
 }
+// swiftlint:enable cyclomatic_complexity
 // swiftlint:enable line_length

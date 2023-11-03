@@ -106,15 +106,15 @@ class ARDemoViewController: UIViewController {
         ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadSmileGlasses(), entityName: "glasses"),
         ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadSmileGlasses(), entityName: "glasses")
     ]
-    var heartModels: [ARAnimatedModels<AnimationDemo.HeartScene>] = [
-        ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadHeartScene(), entityName: "heart"),
-        ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadHeartScene(), entityName: "heart"),
-        ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadHeartScene(), entityName: "heart")
+    var heartModels: [ARAnimatedModels<AnimationDemo.AnimeBlush>] = [
+        ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadAnimeBlush(), entityName: "blush"),
+        ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadAnimeBlush(), entityName: "blush"),
+        ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadAnimeBlush(), entityName: "blush")
     ]
-    var antModels: [ARAnimatedModels<AnimationDemo.AntScene>] = [
-        ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadAntScene(), entityName: "ant"),
-        ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadAntScene(), entityName: "ant"),
-        ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadAntScene(), entityName: "ant")
+    var antModels: [ARAnimatedModels<AnimationDemo.AnimeEyes>] = [
+        ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadAnimeEyes(), entityName: "eyes"),
+        ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadAnimeEyes(), entityName: "eyes"),
+        ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadAnimeEyes(), entityName: "eyes")
     ]
     var beardModels: [ARAnimatedModels<AnimationDemo.RedSharpLens>] = [
         ARAnimatedModels(animatedAnchor: try! AnimationDemo.loadRedSharpLens(), entityName: "lens"),

@@ -65,7 +65,11 @@ class PreviewViewController: UIViewController {
                                       message: "The image has been saved to your photo library.",
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
-            self.navigationController?.popViewController(animated: true)
+            if let navigationController = self.navigationController {
+                navigationController.popViewController(animated: true)
+            } else {
+                self.dismiss(animated: true)
+            }
         })
         present(alert, animated: true, completion: nil)
     }
@@ -74,7 +78,11 @@ class PreviewViewController: UIViewController {
                                             message: nil,
                                             preferredStyle: .actionSheet)
         let discard = UIAlertAction(title: "Discard", style: .destructive) { _ in
-            self.navigationController?.popViewController(animated: true)
+            if let navigationController = self.navigationController {
+                navigationController.popViewController(animated: true)
+            } else {
+                self.dismiss(animated: true)
+            }
         }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { _ in
         }

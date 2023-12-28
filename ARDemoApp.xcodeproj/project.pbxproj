@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		930032BB2B3D889500A5553A /* ViewRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930032BA2B3D889500A5553A /* ViewRecorder.swift */; };
 		9300AB732AA5E09500E4D445 /* CollectionViewForEffectsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9300AB722AA5E09500E4D445 /* CollectionViewForEffectsCell.swift */; };
 		9303F6182AD8FED10038C8E6 /* ARDemoViewController+PreviewViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9303F6172AD8FED10038C8E6 /* ARDemoViewController+PreviewViewControllerDelegate.swift */; };
-		9303F61A2AD924C00038C8E6 /* ARDemoViewController+Calculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9303F6192AD924C00038C8E6 /* ARDemoViewController+Calculations.swift */; };
 		930509D92AA1BA4F008AEF1E /* Vision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 930509D82AA1BA4F008AEF1E /* Vision.framework */; };
-		9311F5832AE635BB0091D1C0 /* CIFiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9311F5822AE635BB0091D1C0 /* CIFiltersViewController.swift */; };
 		93435ADE2AE27BEE0045CC56 /* eyeBlink-Final.scn in Resources */ = {isa = PBXBuildFile; fileRef = 93435ADD2AE27BEE0045CC56 /* eyeBlink-Final.scn */; };
 		93490CCC2AD50C2B00DA031B /* robotHead.reality in Resources */ = {isa = PBXBuildFile; fileRef = 93490CCB2AD50C2B00DA031B /* robotHead.reality */; };
 		93490CCE2AD5114C00DA031B /* ARDemoViewController+CoachingOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93490CCD2AD5114C00DA031B /* ARDemoViewController+CoachingOverlayView.swift */; };
@@ -20,8 +19,10 @@
 		93490CD52AD56BFF00DA031B /* ARDemoViewController+VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93490CD42AD56BFF00DA031B /* ARDemoViewController+VideoCapture.swift */; };
 		9349EE6F2AE1004A008DC211 /* regina blends.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 9349EE6E2AE1004A008DC211 /* regina blends.usdz */; };
 		9349EE772AE1315C008DC211 /* Head_Final.scn in Resources */ = {isa = PBXBuildFile; fileRef = 9349EE762AE1315C008DC211 /* Head_Final.scn */; };
-		9349EE792AE14DEE008DC211 /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9349EE782AE14DEE008DC211 /* AvatarViewController.swift */; };
 		9349EE7B2AE14E8D008DC211 /* facial-setup-final.scn in Resources */ = {isa = PBXBuildFile; fileRef = 9349EE7A2AE14E8C008DC211 /* facial-setup-final.scn */; };
+		9375C9292AF511FB0075574E /* CIFiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9311F5822AE635BB0091D1C0 /* CIFiltersViewController.swift */; };
+		9375C92A2AF511FF0075574E /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9349EE782AE14DEE008DC211 /* AvatarViewController.swift */; };
+		93C3A76B2B35B5F900E1E663 /* ARDemoViewController+Calculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9303F6192AD924C00038C8E6 /* ARDemoViewController+Calculations.swift */; };
 		93C44F1B2A97156E00E10178 /* ARDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C44F1A2A97156E00E10178 /* ARDemoViewController.swift */; };
 		93C44F1D2A97175D00E10178 /* Glass.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 93C44F1C2A97175D00E10178 /* Glass.usdz */; };
 		93C44F232A97399800E10178 /* VelvetHat.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 93C44F222A97399800E10178 /* VelvetHat.usdz */; };
@@ -50,6 +51,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		930032BA2B3D889500A5553A /* ViewRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRecorder.swift; sourceTree = "<group>"; };
 		9300AB722AA5E09500E4D445 /* CollectionViewForEffectsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewForEffectsCell.swift; sourceTree = "<group>"; };
 		9303F6172AD8FED10038C8E6 /* ARDemoViewController+PreviewViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARDemoViewController+PreviewViewControllerDelegate.swift"; sourceTree = "<group>"; };
 		9303F6192AD924C00038C8E6 /* ARDemoViewController+Calculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARDemoViewController+Calculations.swift"; sourceTree = "<group>"; };
@@ -191,9 +193,10 @@
 				9303F6172AD8FED10038C8E6 /* ARDemoViewController+PreviewViewControllerDelegate.swift */,
 				93C44F282A976F8E00E10178 /* CollectionViewForFiltersCell.swift */,
 				9300AB722AA5E09500E4D445 /* CollectionViewForEffectsCell.swift */,
-				9311F5822AE635BB0091D1C0 /* CIFiltersViewController.swift */,
 				9349EE782AE14DEE008DC211 /* AvatarViewController.swift */,
 				93FC233E2A9C7FC100128047 /* ModelTypes.swift */,
+				9311F5822AE635BB0091D1C0 /* CIFiltersViewController.swift */,
+				930032BA2B3D889500A5553A /* ViewRecorder.swift */,
 			);
 			path = FiltersAndEffects;
 			sourceTree = "<group>";
@@ -316,15 +319,17 @@
 				93490CD52AD56BFF00DA031B /* ARDemoViewController+VideoCapture.swift in Sources */,
 				93E80C9B2A95D14E00142843 /* SceneDelegate.swift in Sources */,
 				93FF503B2AA889570089317D /* CollectionViewForEditCell.swift in Sources */,
+				930032BB2B3D889500A5553A /* ViewRecorder.swift in Sources */,
 				93490CCE2AD5114C00DA031B /* ARDemoViewController+CoachingOverlayView.swift in Sources */,
 				93FC1CBE2AA7636A0068C3CE /* AnimationDemo.rcproject in Sources */,
 				93FEE4502AA0B6B6001AEBD7 /* BodySkeleton.swift in Sources */,
 				93490CD02AD5164000DA031B /* RobotHead.swift in Sources */,
-				9349EE792AE14DEE008DC211 /* AvatarViewController.swift in Sources */,
+				93C3A76B2B35B5F900E1E663 /* ARDemoViewController+Calculations.swift in Sources */,
 				93FEE4482AA0A587001AEBD7 /* BodyAnchorViewController.swift in Sources */,
 				93FEE44E2AA0B22F001AEBD7 /* Bones.swift in Sources */,
 				93FEE44A2AA0A71C001AEBD7 /* SkeletonJoint.swift in Sources */,
 				9303F6182AD8FED10038C8E6 /* ARDemoViewController+PreviewViewControllerDelegate.swift in Sources */,
+				9375C9292AF511FB0075574E /* CIFiltersViewController.swift in Sources */,
 				93490CD32AD5167F00DA031B /* Utilities.swift in Sources */,
 				93FC233F2A9C7FC100128047 /* ModelTypes.swift in Sources */,
 				93C44F1B2A97156E00E10178 /* ARDemoViewController.swift in Sources */,
@@ -333,10 +338,9 @@
 				93FEE44C2AA0A742001AEBD7 /* SkeletonBone.swift in Sources */,
 				93C44F292A976F8E00E10178 /* CollectionViewForFiltersCell.swift in Sources */,
 				93FC23432A9C804500128047 /* ARDemoViewController+ARSession.swift in Sources */,
+				9375C92A2AF511FF0075574E /* AvatarViewController.swift in Sources */,
 				9300AB732AA5E09500E4D445 /* CollectionViewForEffectsCell.swift in Sources */,
 				93FF503F2AA8A5E00089317D /* PreviewViewController+Effects.swift in Sources */,
-				9303F61A2AD924C00038C8E6 /* ARDemoViewController+Calculations.swift in Sources */,
-				9311F5832AE635BB0091D1C0 /* CIFiltersViewController.swift in Sources */,
 				93E80CB92A962DF300142843 /* PreviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

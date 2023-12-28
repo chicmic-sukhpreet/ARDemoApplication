@@ -13,13 +13,11 @@ class AvatarViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     var contentNode: SCNNode?
-    var morphs: [SCNGeometry] = []
-    let morpher = SCNMorpher()
     var blackBackground = true
     override func viewDidLoad() {
         super.viewDidLoad()
         sceneView.delegate = self
-        let scene = SCNScene(named: "eyeBlink-Final.scn")!
+        let scene = SCNScene(named: "facial-setup-final.scn")!
         if blackBackground {
             sceneView.scene.background.contents = UIColor(white: 0.0, alpha: 0.2)
         }

@@ -48,9 +48,11 @@
 		93FF503B2AA889570089317D /* CollectionViewForEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FF503A2AA889570089317D /* CollectionViewForEditCell.swift */; };
 		93FF503D2AA88A210089317D /* PreviewViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FF503C2AA88A210089317D /* PreviewViewController+CollectionView.swift */; };
 		93FF503F2AA8A5E00089317D /* PreviewViewController+Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FF503E2AA8A5E00089317D /* PreviewViewController+Effects.swift */; };
+		AF9701ECED9CDD1700FC22E9 /* Pods_ARDemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 237B42297A08B447FBD52BCC /* Pods_ARDemoApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		237B42297A08B447FBD52BCC /* Pods_ARDemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARDemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		930032BA2B3D889500A5553A /* ViewRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRecorder.swift; sourceTree = "<group>"; };
 		9300AB722AA5E09500E4D445 /* CollectionViewForEffectsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewForEffectsCell.swift; sourceTree = "<group>"; };
 		9303F6172AD8FED10038C8E6 /* ARDemoViewController+PreviewViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARDemoViewController+PreviewViewControllerDelegate.swift"; sourceTree = "<group>"; };
@@ -94,6 +96,8 @@
 		93FF503A2AA889570089317D /* CollectionViewForEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewForEditCell.swift; sourceTree = "<group>"; };
 		93FF503C2AA88A210089317D /* PreviewViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreviewViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		93FF503E2AA8A5E00089317D /* PreviewViewController+Effects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreviewViewController+Effects.swift"; sourceTree = "<group>"; };
+		97BCA07627D2B7A9FCBD8249 /* Pods-ARDemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARDemoApp.debug.xcconfig"; path = "Target Support Files/Pods-ARDemoApp/Pods-ARDemoApp.debug.xcconfig"; sourceTree = "<group>"; };
+		DDA3565A946D1E9C72B19B32 /* Pods-ARDemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARDemoApp.release.xcconfig"; path = "Target Support Files/Pods-ARDemoApp/Pods-ARDemoApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,17 +106,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				930509D92AA1BA4F008AEF1E /* Vision.framework in Frameworks */,
+				AF9701ECED9CDD1700FC22E9 /* Pods_ARDemoApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		635436D2387A114F9028D07B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				97BCA07627D2B7A9FCBD8249 /* Pods-ARDemoApp.debug.xcconfig */,
+				DDA3565A946D1E9C72B19B32 /* Pods-ARDemoApp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		930509D72AA1BA4E008AEF1E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				93E80CA32A95D15000142843 /* LaunchScreen.storyboard */,
 				930509D82AA1BA4F008AEF1E /* Vision.framework */,
+				237B42297A08B447FBD52BCC /* Pods_ARDemoApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -132,6 +148,7 @@
 				93E80C972A95D14E00142843 /* ARDemoApp */,
 				93E80C962A95D14E00142843 /* Products */,
 				930509D72AA1BA4E008AEF1E /* Frameworks */,
+				635436D2387A114F9028D07B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -220,10 +237,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 93E80CA92A95D15000142843 /* Build configuration list for PBXNativeTarget "ARDemoApp" */;
 			buildPhases = (
+				62D0B4F2994BA22DB3281393 /* [CP] Check Pods Manifest.lock */,
 				93E80C912A95D14E00142843 /* Sources */,
 				93E80C922A95D14E00142843 /* Frameworks */,
 				93E80C932A95D14E00142843 /* Resources */,
 				93F1A6252AC54BB8000B7D0D /* ShellScript */,
+				89D6724A205490A38141161C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -291,6 +310,45 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		62D0B4F2994BA22DB3281393 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ARDemoApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		89D6724A205490A38141161C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ARDemoApp/Pods-ARDemoApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ARDemoApp/Pods-ARDemoApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ARDemoApp/Pods-ARDemoApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		93F1A6252AC54BB8000B7D0D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -483,6 +541,7 @@
 		};
 		93E80CAA2A95D15000142843 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97BCA07627D2B7A9FCBD8249 /* Pods-ARDemoApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -513,6 +572,7 @@
 		};
 		93E80CAB2A95D15000142843 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDA3565A946D1E9C72B19B32 /* Pods-ARDemoApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

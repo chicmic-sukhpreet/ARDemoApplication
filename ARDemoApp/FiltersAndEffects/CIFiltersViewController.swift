@@ -9,78 +9,48 @@ import UIKit
 import CoreImage
 import AVFoundation
 import Vision
-import MetalKit
 import Photos
+import YUCIHighPassSkinSmoothing
 // swiftlint:disable multiple_closures_with_trailing_closure
 // swiftlint:disable line_length
-class ImageProcessor {
-    var device: MTLDevice!
-    var commandQueue: MTLCommandQueue!
-    var ciContext: CIContext!
-    init?() {
-        guard let device = MTLCreateSystemDefaultDevice(),
-              let commandQueue = device.makeCommandQueue() else { return nil }
-        self.device = device
-        self.commandQueue = commandQueue
-        self.ciContext = CIContext(mtlDevice: device)
-    }
-}
-
 class CIFiltersViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     var imageView: UIImageView!
     let captureSession = AVCaptureSession()
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var cameraOutput: AVCaptureVideoDataOutput?
     var faceDetector: CIDetector?
-    var imageProcessor: ImageProcessor?
+    let context = CIContext(options: [CIContextOption.workingColorSpace: CGColorSpaceCreateDeviceRGB()])
+    let skinSmoothingFilter = YUCIHighPassSkinSmoothing()
     private var captureButton: UIButton!
     private var isRecording = false
     private var videoRecorder: VideoRecorder?
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageProcessor = ImageProcessor()
         setupCamera()
         setupImageView()
         setupFaceDetector()
         setupCaptureButton()
     }
-    func getOrientationFromDeviceOrientation() -> Int32 {
-        switch UIDevice.current.orientation {
-        case .portrait, .faceUp: return 6
-        case .portraitUpsideDown, .faceDown: return 8
-        case .landscapeLeft: return 3
-        case .landscapeRight: return 1
-        default: return 6
-        }
-    }
     func setupFaceDetector() {
-        let orientation = getOrientationFromDeviceOrientation()
-        let options: [String: Any] = [CIDetectorAccuracy: CIDetectorAccuracyHigh, CIDetectorImageOrientation: orientation]
+        let options: [String: Any] = [CIDetectorAccuracy: CIDetectorAccuracyHigh]
         faceDetector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: options)
     }
     func applyFilterToFace(in image: CIImage) -> CIImage? {
-        guard let faceDetector = faceDetector, imageProcessor != nil else { return nil }
+        guard let faceDetector = faceDetector else { return nil }
         let faces = faceDetector.features(in: image)
         var outputImage = image
         for face in faces {
             guard let face = face as? CIFaceFeature else {continue}
             outputImage = applyDistortionFilter(to: outputImage, for: face.bounds)
         }
-       // outputImage = applyExposureAdjust(to: outputImage, exposureValue: 1.0)
-       // outputImage = applyVibrance(to: outputImage, exposureValue: 1.0)
+        // outputImage = applySkinWhiteningFilter(to: outputImage)
         return outputImage
     }
-    func applyExposureAdjust(to image: CIImage, exposureValue: CGFloat) -> CIImage {
-        guard let filter = CIFilter(name: "CIExposureAdjust") else { return image }
-        filter.setValue(image, forKey: kCIInputImageKey)
-        filter.setValue(exposureValue, forKey: kCIInputEVKey)
-        return filter.outputImage ?? image
-    }
-    func applyVibrance(to image: CIImage, vibranceValue: CGFloat) -> CIImage {
-        guard let filter = CIFilter(name: "CIVibrance") else { return image }
-        filter.setValue(image, forKey: kCIInputImageKey)
-        filter.setValue(vibranceValue, forKey: "inputAmount")
-        return filter.outputImage ?? image
+    func applySkinWhiteningFilter(to image: CIImage) -> CIImage {
+        skinSmoothingFilter.inputImage = image
+        skinSmoothingFilter.inputAmount = 0.7
+        skinSmoothingFilter.inputRadius = 7.0 * image.extent.width / 750.0 as NSNumber
+        return skinSmoothingFilter.outputImage ?? image
     }
     func applyDistortionFilter(to image: CIImage, for rect: CGRect) -> CIImage {
         let filter = CIFilter(name: "CIBumpDistortion")
@@ -97,7 +67,7 @@ class CIFiltersViewController: UIViewController, AVCaptureVideoDataOutputSampleB
         let cameraImage = CIImage(cvPixelBuffer: pixelBuffer)
         if let filteredImage = applyFilterToFace(in: cameraImage) {
             let flippedImage = flipImageHorizontally(image: filteredImage)
-            if let cgImage = imageProcessor?.ciContext.createCGImage(flippedImage, from: flippedImage.extent) {
+            if let cgImage = self.context.createCGImage(flippedImage, from: flippedImage.extent) {
                 DispatchQueue.main.async {
                     self.imageView.image = UIImage(cgImage: cgImage, scale: 1, orientation: .right)
                 }
@@ -172,34 +142,34 @@ extension CIFiltersViewController: PreviewViewControllerDelegate {
         }
     }
     @objc func captureButtonClicked() {
-//        let renderer = UIGraphicsImageRenderer(size: view.bounds.size)
-//        self.captureButton.isHidden = true
-//        let screenshot = renderer.image { _ in
-//            view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
-//        }
-//        let previewVC = self.storyboard?.instantiateViewController(withIdentifier: "PreviewViewController") as? PreviewViewController
-//        previewVC?.delegate = self
-//        previewVC?.capturedImage = screenshot
-//        previewVC?.originalImageWithoutEffects = screenshot
-//        previewVC?.modalPresentationStyle = .overFullScreen
-//        self.present(previewVC!, animated: true)
-//        self.captureButton.isHidden = false
-        if !isRecording {
-            videoRecorder = VideoRecorder()
-            if let fileURL = videoRecorder?.createTempFileURL() {
-                videoRecorder?.startRecording(view: imageView, to: fileURL)
-                captureButton.backgroundColor = .red
-            }
-        } else {
-            videoRecorder?.stopRecording { [weak self] videoURL in
-                if let url = videoURL {
-                    self?.videoRecorder?.saveVideoToPhotos(url)
-                }
-                self?.videoRecorder = nil
-            }
-            captureButton.backgroundColor = .white
+        let renderer = UIGraphicsImageRenderer(size: view.bounds.size)
+        self.captureButton.isHidden = true
+        let screenshot = renderer.image { _ in
+            view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
         }
-        isRecording.toggle()
+        let previewVC = self.storyboard?.instantiateViewController(withIdentifier: "PreviewViewController") as? PreviewViewController
+        previewVC?.delegate = self
+        previewVC?.capturedImage = screenshot
+        previewVC?.originalImageWithoutEffects = screenshot
+        previewVC?.modalPresentationStyle = .overFullScreen
+        self.present(previewVC!, animated: true)
+        self.captureButton.isHidden = false
+//        if !isRecording {
+//            videoRecorder = VideoRecorder()
+//            if let fileURL = videoRecorder?.createTempFileURL() {
+//                videoRecorder?.startRecording(view: imageView, to: fileURL)
+//                captureButton.backgroundColor = .red
+//            }
+//        } else {
+//            videoRecorder?.stopRecording { [weak self] videoURL in
+//                if let url = videoURL {
+//                    self?.videoRecorder?.saveVideoToPhotos(url)
+//                }
+//                self?.videoRecorder = nil
+//            }
+//            captureButton.backgroundColor = .white
+//        }
+//        isRecording.toggle()
     }
 }
 // swiftlint:enable line_length

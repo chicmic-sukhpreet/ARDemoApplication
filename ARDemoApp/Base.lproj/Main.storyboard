@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O1K-XA-IPc">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -339,6 +340,45 @@
                                     <constraint firstItem="UwZ-eQ-f1J" firstAttribute="leading" secondItem="WUp-Rz-LEM" secondAttribute="leading" constant="10" id="dvd-4K-nWE"/>
                                 </constraints>
                             </view>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="3pz-ee-1L9">
+                                <rect key="frame" x="18" y="582" width="357" height="31"/>
+                                <color key="tintColor" systemColor="systemYellowColor"/>
+                            </slider>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wQ1-XJ-K4s">
+                                <rect key="frame" x="327.33333333333331" y="335.66666666666669" width="45.666666666666686" height="181.00000000000006"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="egs-rt-aEH">
+                                        <rect key="frame" x="10.000000000000002" y="20" width="25.666666666666671" height="141"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.lefthalf.filled" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="XiH-un-bhI">
+                                                <rect key="frame" x="0.0" y="-2.3333333333333357" width="25.666666666666668" height="25.666666666666668"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="microbe.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mEh-8E-K4d">
+                                                <rect key="frame" x="0.0" y="57.999999999999979" width="25.666666666666668" height="25.666666666666679"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thermometer.medium" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FKA-XG-mED">
+                                                <rect key="frame" x="0.0" y="116.99999999999994" width="25.666666666666668" height="28"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="egs-rt-aEH" secondAttribute="trailing" constant="10" id="cIE-br-0O2"/>
+                                    <constraint firstItem="egs-rt-aEH" firstAttribute="top" secondItem="wQ1-XJ-K4s" secondAttribute="top" constant="20" id="fkg-WW-i0e"/>
+                                    <constraint firstItem="egs-rt-aEH" firstAttribute="leading" secondItem="wQ1-XJ-K4s" secondAttribute="leading" constant="10" id="nmh-e9-89l"/>
+                                    <constraint firstAttribute="bottom" secondItem="egs-rt-aEH" secondAttribute="bottom" constant="20" id="ywY-ly-vOI"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="L0D-r4-9dA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -346,16 +386,26 @@
                             <constraint firstItem="lwo-WV-9Za" firstAttribute="top" secondItem="RZw-dW-Wj7" secondAttribute="top" id="0hw-aL-p8X"/>
                             <constraint firstItem="WUp-Rz-LEM" firstAttribute="leading" secondItem="RZw-dW-Wj7" secondAttribute="leading" id="8DG-cD-Veg"/>
                             <constraint firstItem="WUp-Rz-LEM" firstAttribute="top" secondItem="lwo-WV-9Za" secondAttribute="bottom" id="BoN-1H-tAZ"/>
+                            <constraint firstItem="WUp-Rz-LEM" firstAttribute="top" secondItem="3pz-ee-1L9" secondAttribute="bottom" constant="40" id="TQL-MJ-0kh"/>
                             <constraint firstAttribute="bottom" secondItem="WUp-Rz-LEM" secondAttribute="bottom" id="TWc-LT-PHX"/>
                             <constraint firstItem="lwo-WV-9Za" firstAttribute="trailing" secondItem="L0D-r4-9dA" secondAttribute="trailing" id="YdU-w3-l6G"/>
+                            <constraint firstItem="3pz-ee-1L9" firstAttribute="leading" secondItem="L0D-r4-9dA" secondAttribute="leading" constant="20" id="ZyY-UI-NYk"/>
                             <constraint firstAttribute="trailing" secondItem="WUp-Rz-LEM" secondAttribute="trailing" id="dbV-4k-a3E"/>
                             <constraint firstItem="lwo-WV-9Za" firstAttribute="leading" secondItem="L0D-r4-9dA" secondAttribute="leading" id="ggw-tQ-3g8"/>
+                            <constraint firstItem="L0D-r4-9dA" firstAttribute="trailing" secondItem="wQ1-XJ-K4s" secondAttribute="trailing" constant="20" id="ota-kD-OCc"/>
+                            <constraint firstItem="L0D-r4-9dA" firstAttribute="trailing" secondItem="3pz-ee-1L9" secondAttribute="trailing" constant="20" id="wcb-2v-WBF"/>
+                            <constraint firstItem="wQ1-XJ-K4s" firstAttribute="centerY" secondItem="RZw-dW-Wj7" secondAttribute="centerY" id="yzh-ZO-DZG"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="brightness" destination="mEh-8E-K4d" id="B5V-XF-bVQ"/>
                         <outlet property="collectionViewForEdit" destination="UwZ-eQ-f1J" id="Ljh-KG-dBw"/>
+                        <outlet property="contrast" destination="XiH-un-bhI" id="7PU-L7-uad"/>
+                        <outlet property="editingView" destination="wQ1-XJ-K4s" id="YYp-ei-d52"/>
                         <outlet property="previewImage" destination="lwo-WV-9Za" id="DMz-MQ-ypn"/>
                         <outlet property="revertButton" destination="tf0-xd-DBa" id="sbK-vp-PCX"/>
+                        <outlet property="saturation" destination="FKA-XG-mED" id="Thj-ng-lFT"/>
+                        <outlet property="slider" destination="3pz-ee-1L9" id="15i-B2-v9N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iZA-xo-VVc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -408,7 +458,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="circle.lefthalf.filled" catalog="system" width="128" height="123"/>
         <image name="gobackward" catalog="system" width="119" height="128"/>
+        <image name="microbe.circle" catalog="system" width="128" height="123"/>
+        <image name="thermometer.medium" catalog="system" width="80" height="128"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

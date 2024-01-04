@@ -25,6 +25,42 @@ extension PreviewViewController {
         let cgimg = context.createCGImage(monoFilter!.outputImage!, from: monoFilter!.outputImage!.extent)
         return cgimg
     }
+    func applyContrastEffect(to inputImage: UIImage, contrast: CGFloat) -> UIImage? { // circle.lefthalf.filled
+        guard let ciImage = CIImage(image: inputImage) else { return nil }
+        let filter = CIFilter(name: "CIColorControls")
+        filter?.setValue(ciImage, forKey: kCIInputImageKey)
+        filter?.setValue(contrast, forKey: kCIInputContrastKey)
+        guard let outputCIImage = filter?.outputImage else { return nil }
+        let context = CIContext(options: nil)
+        if let cgImage = context.createCGImage(outputCIImage, from: outputCIImage.extent) {
+            return UIImage(cgImage: cgImage)
+        }
+        return nil
+    }
+    func applyBrightnessEffect(to inputImage: UIImage, brightness: CGFloat) -> UIImage? { // microbe.circle
+        guard let ciImage = CIImage(image: inputImage) else { return nil }
+        let filter = CIFilter(name: "CIColorControls")
+        filter?.setValue(ciImage, forKey: kCIInputImageKey)
+        filter?.setValue(brightness, forKey: kCIInputBrightnessKey)
+        guard let outputCIImage = filter?.outputImage else { return nil }
+        let context = CIContext(options: nil)
+        if let cgImage = context.createCGImage(outputCIImage, from: outputCIImage.extent) {
+            return UIImage(cgImage: cgImage)
+        }
+        return nil
+    }
+    func applySaturationEffect(to inputImage: UIImage, saturation: CGFloat) -> UIImage? { // thermometer.medium
+        guard let ciImage = CIImage(image: inputImage) else { return nil }
+        let filter = CIFilter(name: "CIColorControls")
+        filter?.setValue(ciImage, forKey: kCIInputImageKey)
+        filter?.setValue(saturation, forKey: kCIInputSaturationKey)
+        guard let outputCIImage = filter?.outputImage else { return nil }
+        let context = CIContext(options: nil)
+        if let cgImage = context.createCGImage(outputCIImage, from: outputCIImage.extent) {
+            return UIImage(cgImage: cgImage)
+        }
+        return nil
+    }
 }
 
 extension UIImage {

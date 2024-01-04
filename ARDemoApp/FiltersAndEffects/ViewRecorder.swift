@@ -36,23 +36,19 @@ class VideoRecorder {
             AVVideoWidthKey: view.bounds.width,
             AVVideoHeightKey: view.bounds.height
         ]
-
         assetWriter = try AVAssetWriter(outputURL: outputFileURL, fileType: .mp4)
         assetWriterInput = AVAssetWriterInput(mediaType: .video, outputSettings: outputSettings)
         assetWriterInput?.expectsMediaDataInRealTime = true
-
         if assetWriter!.canAdd(assetWriterInput!) {
             assetWriter!.add(assetWriterInput!)
         } else {
             throw NSError(domain: "VideoRecorder", code: 0, userInfo: [NSLocalizedDescriptionKey: "Cannot add input"])
         }
-
         let sourcePixelBufferAttributes: [String: Any] = [
             kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32ARGB
         ]
         pixelBufferAdaptor = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: assetWriterInput!,
                                                                   sourcePixelBufferAttributes: sourcePixelBufferAttributes)
-
         assetWriter!.startWriting()
         assetWriter!.startSession(atSourceTime: .zero)
     }
@@ -65,11 +61,9 @@ class VideoRecorder {
         guard let assetWriterInput = assetWriterInput,
                 assetWriterInput.isReadyForMoreMediaData,
                 let startTime = startTime else { return }
-
         let currentTime = CFAbsoluteTimeGetCurrent() - startTime
         let frameTime = CMTime(seconds: currentTime, preferredTimescale: 600)
         guard let pixelBuffer = pixelBuffer(from: viewToRecord!) else { return }
-
         pixelBufferAdaptor?.append(pixelBuffer, withPresentationTime: frameTime)
     }
     private func pixelBuffer(from view: UIView) -> CVPixelBuffer? {
@@ -79,7 +73,6 @@ class VideoRecorder {
         view.layer.render(in: context)
         guard let image = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
         UIGraphicsEndImageContext()
-
         let attrs = [kCVPixelBufferCGImageCompatibilityKey: kCFBooleanTrue,
                      kCVPixelBufferCGBitmapContextCompatibilityKey: kCFBooleanTrue] as CFDictionary
         var pixelBuffer: CVPixelBuffer?
@@ -91,10 +84,8 @@ class VideoRecorder {
                                          &pixelBuffer)
 
         guard status == kCVReturnSuccess, let unwrappedPixelBuffer = pixelBuffer else { return nil }
-
         CVPixelBufferLockBaseAddress(unwrappedPixelBuffer, CVPixelBufferLockFlags(rawValue: 0))
         let pixelData = CVPixelBufferGetBaseAddress(unwrappedPixelBuffer)
-
         let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
         guard let quartzContext = CGContext(data: pixelData,
                                             width: Int(size.width),
@@ -108,7 +99,6 @@ class VideoRecorder {
 
         quartzContext.draw(image.cgImage!, in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
         CVPixelBufferUnlockBaseAddress(unwrappedPixelBuffer, CVPixelBufferLockFlags(rawValue: 0))
-
         return unwrappedPixelBuffer
     }
     func stopRecording(completion: @escaping (URL?) -> Void) {
@@ -116,7 +106,6 @@ class VideoRecorder {
             completion(nil)
             return
         }
-
         displayLink?.invalidate()
         displayLink = nil
         assetWriterInput?.markAsFinished()

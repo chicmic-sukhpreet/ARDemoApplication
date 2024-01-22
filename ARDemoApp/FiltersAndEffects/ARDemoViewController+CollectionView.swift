@@ -41,13 +41,17 @@ extension ARDemoViewController: UICollectionViewDelegate, UICollectionViewDataSo
             } else if indexPath.item == 7 {
                 cell?.modelImage.image = UIImage(named: "eyeBall")
             } else if indexPath.item == 8 {
-                cell?.modelImage.image = UIImage(named: "hearts")
+                cell?.modelImage.image = UIImage(named: "animeBlush")
             } else if indexPath.item == 9 {
-                cell?.modelImage.image = UIImage(named: "ant")
+                cell?.modelImage.image = UIImage(named: "eyes")
             } else if indexPath.item == 10 {
-                cell?.modelImage.image = UIImage(named: "beard")
+                cell?.modelImage.image = UIImage(named: "star")
             } else if indexPath.item == 11 {
                 cell?.modelImage.image = UIImage(named: "dayTime")
+            } else if indexPath.item == 12 {
+                cell?.modelImage.image = UIImage(named: "distortion")
+            } else if indexPath.item == 13 {
+                cell?.modelImage.image = UIImage(named: "beauty")
             }
             cell?.modelImage.layer.cornerRadius = 10
             cell?.modelImage.layer.masksToBounds = true

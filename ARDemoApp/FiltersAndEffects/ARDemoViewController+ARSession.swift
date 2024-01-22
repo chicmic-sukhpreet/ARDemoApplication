@@ -46,6 +46,7 @@ extension ARDemoViewController: ARSessionDelegate {
         }
     }
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
+        arViewRecorder?.session(session, didUpdate: frame)
         if option == .filters && selectedIndexForFilters == 6 {
             if headPreview == nil {
                 addHeadPreview()
@@ -85,6 +86,20 @@ extension ARDemoViewController: ARSessionDelegate {
                 }
                 self.isProcessingFrame = false
             }
+        }
+    }
+    func startRecording() {
+        guard let arView = arView else { return }
+        let outputFileURL = arViewRecorder?.createTempFileURL()
+        arViewRecorder?.startRecording(to: outputFileURL!, from: arView)
+    }
+
+    func stopRecording() {
+        arViewRecorder?.stopRecording { [weak self] outputURL in
+            guard let outputURL = outputURL else { return }
+            // Handle the recorded video file, e.g., save to Photos or something else
+            self?.arViewRecorder?.saveVideoToPhotos(outputURL)
+            print("Recording finished: \(outputURL)")
         }
     }
 }

@@ -48,6 +48,8 @@ class PreviewViewController: UIViewController {
         revertButton.tintColor = UIColor.gray
         collectionViewForEdit.delegate = self
         collectionViewForEdit.dataSource = self
+        slider.isHidden = true
+        editingView.isHidden = true
         slider.minimumValue = 0
         slider.maximumValue = 1
         slider.value = 0.5

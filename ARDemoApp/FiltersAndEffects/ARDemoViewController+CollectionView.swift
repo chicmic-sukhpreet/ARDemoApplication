@@ -18,7 +18,7 @@ extension ARDemoViewController: UICollectionViewDelegate, UICollectionViewDataSo
                       animatedModelsForEye.count +
                       heartModels.count +
                       antModels.count +
-                      beardModels.count) / maximumNumberOfFaceAnchors) + 2
+                      beardModels.count) / maximumNumberOfFaceAnchors) + 2 + 2
         } else {
             return effects.count
         }
@@ -78,13 +78,16 @@ extension ARDemoViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == collectionViewForFilters {
-            if indexPath.item != 6 {
+            if cameraOutput != nil && indexPath.item < 12 {
+                removeImageViewForDistortionAndBeauty()
+            }
+            if indexPath.item != 6 && indexPath.item < 12 {
                 setupFaceTracking()
                 headPreview = nil
             }
-            if indexPath.item < 6  || indexPath.item > 7 {
+            if indexPath.item < 6  || (indexPath.item > 7 && indexPath.item < 12) {
                 arView.environment.background = .cameraFeed()
-            } else {
+            } else if indexPath.item < 12 {
                 arView.environment.background = .color(.black)
             }
             if let previousSelectedIndexPath = selectedIndexPathForFilters {
@@ -106,6 +109,13 @@ extension ARDemoViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 setupCombinedTracking()
             } else if indexPath.item >= 7 {
                 label.text = ""
+            }
+            slider.isHidden = indexPath.item <= 12
+            if indexPath.item >= 12 {
+                if cameraOutput == nil {
+                    setupDistortionAndBeautyFilters()
+                }
+                filterTypeSelected = indexPath.item == 12 ? .distortion : .beauty
             }
             resetDayAndTimeLabels()
         } else {

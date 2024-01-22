@@ -10,6 +10,8 @@ import ARKit
 import RealityKit
 import ReplayKit
 import CoreImage
+import YUCIHighPassSkinSmoothing
+import AVFoundation
 
 enum ChoosedOption {
     case filters
@@ -147,16 +149,23 @@ class ARDemoViewController: UIViewController {
     var option: ChoosedOption = .filters
     var isProcessingFrame: Bool = false
     var filterContext: CIContext?
+    var imageView: UIImageView!
+    let captureSession = AVCaptureSession()
+    var videoPreviewLayer: AVCaptureVideoPreviewLayer?
+    var cameraOutput: AVCaptureVideoDataOutput?
+    var faceDetector: CIDetector?
+    let context = CIContext(options: [CIContextOption.workingColorSpace: CGColorSpaceCreateDeviceRGB()])
+    let skinSmoothingFilter = YUCIHighPassSkinSmoothing()
+    var slider: UISlider! = UISlider()
+    var filterTypeSelected: FilterType = .distortion
+    var faceTrackingSupported: Bool = true
+    var arViewRecorder: ARViewRecorder?
     // swiftlint:enable force_try
     override func viewDidLoad() {
         super.viewDidLoad()
         arView.session.delegate = self
-        // arView.environment.background = .color(.black)
-        guard ARFaceTrackingConfiguration.isSupported else {
-            fatalError("face tracking is not supported on this device")
-        }
-        guard ARWorldTrackingConfiguration.supportsUserFaceTracking else {
-            fatalError("face tracking with world tracking is not supported on this device")
+        if !ARFaceTrackingConfiguration.isSupported || !ARWorldTrackingConfiguration.supportsUserFaceTracking {
+            faceTrackingSupported = false
         }
         collectionViewForFilters.delegate = self
         collectionViewForFilters.dataSource = self
@@ -182,22 +191,32 @@ class ARDemoViewController: UIViewController {
             circularView.centerXAnchor.constraint(equalTo: captureButton.centerXAnchor),
             circularView.centerYAnchor.constraint(equalTo: captureButton.centerYAnchor)
         ])
+        guard faceTrackingSupported else {
+            segmentedControl.selectedSegmentIndex = 1
+            option = .effects
+            collectionViewForFilters.isHidden = true
+            collectionViewForEffects.isHidden = false
+            return
+        }
+        arViewRecorder = ARViewRecorder()
         setupCoachingOverlay()
         setupAnimoji()
         resetDayAndTimeLabels()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        arView.scene.anchors.removeAll()
-        guard selectedIndexForFilters != 6 else {
-            setupCombinedTracking()
-            return
+        if selectedIndexForFilters < 12 {
+            arView.scene.anchors.removeAll()
+            guard selectedIndexForFilters != 6 else {
+                setupCombinedTracking()
+                return
+            }
+            headPreview = nil
+            let configuration = ARFaceTrackingConfiguration()
+            configuration.maximumNumberOfTrackedFaces = ARFaceTrackingConfiguration.supportedNumberOfTrackedFaces
+            arView.session.run(configuration)
+            resetDayAndTimeLabels()
         }
-        headPreview = nil
-        let configuration = ARFaceTrackingConfiguration()
-        configuration.maximumNumberOfTrackedFaces = ARFaceTrackingConfiguration.supportedNumberOfTrackedFaces
-        arView.session.run(configuration)
-        resetDayAndTimeLabels()
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -209,7 +228,7 @@ class ARDemoViewController: UIViewController {
         self.currentTimeLabel.text = data.time
     }
     func resetDayAndTimeLabels() {
-        if selectedIndexForFilters == 11 {
+        if selectedIndexForFilters == 11 && option == .filters {
             weekDayLabel.isHidden = false
             currentTimeLabel.isHidden = false
             setupDayAndTimeLabels()
@@ -262,14 +281,18 @@ class ARDemoViewController: UIViewController {
     }
     @IBAction func segmentValueChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
-        case 0:
-            collectionViewForFilters.isHidden = false
-            collectionViewForEffects.isHidden = true
-            filterImageView.isHidden = true
-            label.isHidden = false
-            option = .filters
-            resetDayAndTimeLabels()
-        case 1:
+        case 0: // This is called when we click on the filter(AR) side
+            if faceTrackingSupported {
+                collectionViewForFilters.isHidden = false
+                collectionViewForEffects.isHidden = true
+                filterImageView.isHidden = true
+                label.isHidden = false
+                option = .filters
+                resetDayAndTimeLabels()
+            } else {
+                showAlertForFaceTracking()
+            }
+        case 1: // This is called when we click on the effect side
             collectionViewForFilters.isHidden = true
             collectionViewForEffects.isHidden = false
             filterImageView.isHidden = false
@@ -281,6 +304,16 @@ class ARDemoViewController: UIViewController {
             break
         }
     }
+    func showAlertForFaceTracking() {
+        let alert = UIAlertController(title: "Not Supported",
+                                      message: "This device is not supported for face tracking.",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default) {[weak self] _ in
+            self?.segmentedControl.selectedSegmentIndex = 1
+            self?.option = .effects
+        })
+        present(alert, animated: true, completion: nil)
+    }
     func captureScreenshot() {
         captureButton.isHidden = true
         collectionViewForFilters.isHidden = true
@@ -288,6 +321,7 @@ class ARDemoViewController: UIViewController {
         label.isHidden = true
         segmentedControl.isHidden = true
         circularView.isHidden = true
+        slider.isHidden = true
         let renderer = UIGraphicsImageRenderer(size: view.bounds.size)
         let screenshot = renderer.image { _ in
             view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
@@ -311,6 +345,7 @@ class ARDemoViewController: UIViewController {
         label.isHidden = false
         segmentedControl.isHidden = false
         circularView.isHidden = false
+        slider.isHidden = selectedIndexForFilters != 13
     }
     func updateHeadPreviewAppearance(for frame: ARFrame) {
         guard let robotHeadPreview = headPreview else { return }

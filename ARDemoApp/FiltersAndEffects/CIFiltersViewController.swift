@@ -8,7 +8,6 @@
 import UIKit
 import CoreImage
 import AVFoundation
-import Vision
 import Photos
 import YUCIHighPassSkinSmoothing
 // swiftlint:disable multiple_closures_with_trailing_closure

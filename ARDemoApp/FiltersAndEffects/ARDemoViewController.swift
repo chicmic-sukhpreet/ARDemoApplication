@@ -160,6 +160,7 @@ class ARDemoViewController: UIViewController {
     var filterTypeSelected: FilterType = .distortion
     var faceTrackingSupported: Bool = true
     var arViewRecorder: ARViewRecorder?
+    let alert = UIAlertController(title: nil, message: "Loading...", preferredStyle: .alert)
     // swiftlint:enable force_try
     override func viewDidLoad() {
         super.viewDidLoad()

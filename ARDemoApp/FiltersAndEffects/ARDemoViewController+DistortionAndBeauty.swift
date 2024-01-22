@@ -16,6 +16,9 @@ import AVFoundation
 // swiftlint:disable force_cast
 extension ARDemoViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     func setupDistortionAndBeautyFilters() {
+        DispatchQueue.main.async { [weak self] in
+            self?.showLoader()
+        }
         setupCamera()
         setupImageView()
         setupFaceDetector()
@@ -27,11 +30,17 @@ extension ARDemoViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         view.bringSubviewToFront(captureButton)
     }
     func removeImageViewForDistortionAndBeauty() {
+        DispatchQueue.main.async { [weak self] in
+            self?.showLoader()
+        }
         captureSession.stopRunning()
         captureSession.inputs.forEach { captureSession.removeInput($0) }
         captureSession.outputs.forEach { captureSession.removeOutput($0) }
         imageView.removeFromSuperview()
         cameraOutput = nil
+        DispatchQueue.main.async { [weak self] in
+            self?.hideLoader()
+        }
     }
     func setupSlider() {
         slider.minimumValue = 0
@@ -111,6 +120,7 @@ extension ARDemoViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                                                                       position: .front)
         guard let device = deviceDiscoverySession.devices.first else {
             print("Failed to get the front camera device")
+            hideLoader()
             return
         }
         do {
@@ -124,9 +134,13 @@ extension ARDemoViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             captureSession.addOutput(cameraOutput!)
             DispatchQueue.global(qos: .default).async { [weak self] in
                 self?.captureSession.startRunning()
+                DispatchQueue.main.async {
+                    self?.hideLoader()
+                }
             }
         } catch {
             print(error)
+            hideLoader()
             return
         }
     }

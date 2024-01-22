@@ -283,6 +283,13 @@ class ARDemoViewController: UIViewController {
         switch sender.selectedSegmentIndex {
         case 0: // This is called when we click on the filter(AR) side
             if faceTrackingSupported {
+                if selectedIndexForFilters >= 12 {
+                    if cameraOutput == nil {
+                        setupDistortionAndBeautyFilters()
+                    }
+                    filterTypeSelected = selectedIndexForFilters == 12 ? .distortion : .beauty
+                    slider.isHidden = selectedIndexForFilters != 13
+                }
                 collectionViewForFilters.isHidden = false
                 collectionViewForEffects.isHidden = true
                 filterImageView.isHidden = true
@@ -293,6 +300,10 @@ class ARDemoViewController: UIViewController {
                 showAlertForFaceTracking()
             }
         case 1: // This is called when we click on the effect side
+            if selectedIndexForFilters >= 12 {
+                removeImageViewForDistortionAndBeauty()
+            }
+            slider.isHidden = true
             collectionViewForFilters.isHidden = true
             collectionViewForEffects.isHidden = false
             filterImageView.isHidden = false

@@ -7,4 +7,5 @@ target 'ARDemoApp' do
 
   # Pods for ARDemoApp
  pod 'YUCIHighPassSkinSmoothing'
+  pod 'SwiftConfettiView'
 end

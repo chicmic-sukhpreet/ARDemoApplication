@@ -12,6 +12,7 @@ import ReplayKit
 import CoreImage
 import YUCIHighPassSkinSmoothing
 import AVFoundation
+import SwiftConfettiView
 
 enum ChoosedOption {
     case filters
@@ -30,6 +31,7 @@ class ARDemoViewController: UIViewController {
     @IBOutlet var segmentedControl: UISegmentedControl!
     @IBOutlet var weekDayLabel: UILabel!
     @IBOutlet var currentTimeLabel: UILabel!
+    @IBOutlet weak var confettiView: SwiftConfettiView!
     let circularView = UIView()
     let coachingOverlayView = ARCoachingOverlayView()
     let recorder = RPScreenRecorder.shared()
@@ -161,6 +163,8 @@ class ARDemoViewController: UIViewController {
     var faceTrackingSupported: Bool = true
     var arViewRecorder: ARViewRecorder?
     let alert = UIAlertController(title: nil, message: "Loading...", preferredStyle: .alert)
+    private var isRecording = false
+    private var videoRecorder: VideoRecorder?
     // swiftlint:enable force_try
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -203,6 +207,7 @@ class ARDemoViewController: UIViewController {
         setupCoachingOverlay()
         setupAnimoji()
         resetDayAndTimeLabels()
+        setupConfetti()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -222,6 +227,11 @@ class ARDemoViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         arView.session.pause()
+    }
+    func setupConfetti() {
+        confettiView.type = .diamond
+        confettiView.colors = [UIColor.red, UIColor.green, UIColor.blue]
+        confettiView.intensity = 0.75
     }
     func setupDayAndTimeLabels() {
         let data = getDataOfCurrentDay()
@@ -318,7 +328,7 @@ class ARDemoViewController: UIViewController {
     }
     func showAlertForFaceTracking() {
         let alert = UIAlertController(title: "Not Supported",
-                                      message: "This device is not supported for face tracking.",
+                                      message: "This device doesn't support this feature.",
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default) {[weak self] _ in
             self?.segmentedControl.selectedSegmentIndex = 1
@@ -358,6 +368,24 @@ class ARDemoViewController: UIViewController {
         segmentedControl.isHidden = false
         circularView.isHidden = false
         slider.isHidden = selectedIndexForFilters != 13
+    }
+    func captureVideo() {
+        if !isRecording {
+            videoRecorder = VideoRecorder()
+            if let fileURL = videoRecorder?.createTempFileURL() {
+                videoRecorder?.startRecording(view: imageView, to: fileURL)
+                circularView.backgroundColor = .red
+            }
+        } else {
+            videoRecorder?.stopRecording { [weak self] videoURL in
+                if let url = videoURL {
+                    self?.videoRecorder?.saveVideoToPhotos(url)
+                }
+                self?.videoRecorder = nil
+            }
+            circularView.backgroundColor = .white
+        }
+        isRecording.toggle()
     }
     func updateHeadPreviewAppearance(for frame: ARFrame) {
         guard let robotHeadPreview = headPreview else { return }

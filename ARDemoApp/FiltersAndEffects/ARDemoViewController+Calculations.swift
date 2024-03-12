@@ -148,10 +148,16 @@ extension ARDemoViewController {
                 arView.scene.anchors.append(animatedModelsForSmile[index].animatedAnchor)
                 guard index == 0 else { continue }
                 label.text = ""
+                confettiView.isHidden = false
+                if !confettiView.isActive() {
+                    confettiView.startConfetti()
+                }
             } else {
                 arView.scene.anchors.remove(animatedModelsForSmile[index].animatedAnchor)
                 guard index == 0 else { continue }
                 label.text = "smile"
+                confettiView.isHidden = true
+                confettiView.stopConfetti()
             }
         }
     }

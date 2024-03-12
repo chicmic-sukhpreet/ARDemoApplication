@@ -31,7 +31,7 @@
         <!--Demo View Controller-->
         <scene sceneID="hdD-vh-QAk">
             <objects>
-                <viewController id="UJC-DF-Nj8" customClass="ARDemoViewController" customModule="ARDemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="UJC-DF-Nj8" customClass="ARDemoViewController" customModule="ArtiFace" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QRX-nE-imc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -43,6 +43,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hcf-fT-rjY" customClass="SwiftConfettiView" customModule="SwiftConfettiView">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2wU-7k-Vrj">
                                 <rect key="frame" x="10" y="642" width="373" height="90"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -56,7 +60,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="modelCollectionViewCell" id="9sC-mn-Qse" customClass="CollectionViewForFiltersCell" customModule="ARDemoApp" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="modelCollectionViewCell" id="9sC-mn-Qse" customClass="CollectionViewForFiltersCell" customModule="ArtiFace" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="10.666666666666666" width="128" height="69"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nKp-Jc-iyN">
@@ -98,7 +102,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewForEffects" id="LKJ-zy-PS2" customClass="CollectionViewForEffectsCell" customModule="ARDemoApp" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewForEffects" id="LKJ-zy-PS2" customClass="CollectionViewForEffectsCell" customModule="ArtiFace" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="10.666666666666666" width="128" height="69"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nim-Ja-alx">
@@ -190,20 +194,24 @@
                             <constraint firstItem="vkF-wP-vP7" firstAttribute="centerX" secondItem="QRX-nE-imc" secondAttribute="centerX" id="Ap2-2U-LYw"/>
                             <constraint firstItem="9G6-JB-eVD" firstAttribute="top" secondItem="PRU-sc-iAp" secondAttribute="bottom" constant="20" id="DnJ-Ee-6FU"/>
                             <constraint firstItem="PRU-sc-iAp" firstAttribute="leading" secondItem="RkT-av-Bwh" secondAttribute="leading" constant="10" id="L6k-GP-fJr"/>
+                            <constraint firstItem="hcf-fT-rjY" firstAttribute="leading" secondItem="RkT-av-Bwh" secondAttribute="leading" id="NUL-O6-Vx3"/>
                             <constraint firstAttribute="bottom" secondItem="9G6-JB-eVD" secondAttribute="bottom" constant="30" id="P1x-s2-heR"/>
                             <constraint firstItem="vkF-wP-vP7" firstAttribute="top" secondItem="CSn-mD-BCj" secondAttribute="bottom" constant="35" id="PiE-t4-5Hw"/>
                             <constraint firstItem="PRU-sc-iAp" firstAttribute="centerX" secondItem="QRX-nE-imc" secondAttribute="centerX" id="ScZ-6m-ZnX"/>
                             <constraint firstItem="GJb-8H-07L" firstAttribute="top" secondItem="QRX-nE-imc" secondAttribute="top" id="Shd-bS-qFg"/>
                             <constraint firstItem="RkT-av-Bwh" firstAttribute="trailing" secondItem="0u4-ZC-Ys5" secondAttribute="trailing" constant="79" id="Uif-hL-Pzp"/>
                             <constraint firstAttribute="bottom" secondItem="GJb-8H-07L" secondAttribute="bottom" id="Wpm-Rj-Qqs"/>
+                            <constraint firstAttribute="bottom" secondItem="hcf-fT-rjY" secondAttribute="bottom" id="ZzC-UL-kGC"/>
                             <constraint firstItem="RkT-av-Bwh" firstAttribute="trailing" secondItem="PRU-sc-iAp" secondAttribute="trailing" constant="10" id="aAX-UX-9Th"/>
                             <constraint firstItem="GJb-8H-07L" firstAttribute="trailing" secondItem="RkT-av-Bwh" secondAttribute="trailing" id="aaO-Qn-2Yr"/>
+                            <constraint firstItem="hcf-fT-rjY" firstAttribute="top" secondItem="QRX-nE-imc" secondAttribute="top" id="bJG-ak-CGa"/>
                             <constraint firstItem="CSn-mD-BCj" firstAttribute="top" secondItem="cOY-Z5-xSg" secondAttribute="bottom" constant="20" id="dFj-Ht-Jcc"/>
                             <constraint firstAttribute="bottom" secondItem="Oj8-gX-OGu" secondAttribute="bottom" id="dOL-SO-x08"/>
                             <constraint firstItem="Oj8-gX-OGu" firstAttribute="leading" secondItem="QRX-nE-imc" secondAttribute="leading" id="dZo-Ck-QIa"/>
                             <constraint firstItem="cOY-Z5-xSg" firstAttribute="centerX" secondItem="QRX-nE-imc" secondAttribute="centerX" id="fI5-Tm-sMH"/>
                             <constraint firstItem="GJb-8H-07L" firstAttribute="leading" secondItem="RkT-av-Bwh" secondAttribute="leading" id="g9N-fH-cRz"/>
                             <constraint firstItem="0u4-ZC-Ys5" firstAttribute="leading" secondItem="RkT-av-Bwh" secondAttribute="leading" constant="78" id="ioF-IM-iDq"/>
+                            <constraint firstItem="hcf-fT-rjY" firstAttribute="trailing" secondItem="RkT-av-Bwh" secondAttribute="trailing" id="jEr-PX-myd"/>
                             <constraint firstItem="CSn-mD-BCj" firstAttribute="centerX" secondItem="QRX-nE-imc" secondAttribute="centerX" id="nXG-yJ-w4O"/>
                             <constraint firstItem="0u4-ZC-Ys5" firstAttribute="top" secondItem="RkT-av-Bwh" secondAttribute="top" constant="313" id="nwE-l9-0wB"/>
                             <constraint firstItem="RkT-av-Bwh" firstAttribute="trailing" secondItem="2wU-7k-Vrj" secondAttribute="trailing" constant="10" id="oFZ-X1-93r"/>
@@ -218,6 +226,7 @@
                         <outlet property="captureButton" destination="9G6-JB-eVD" id="jnp-6a-uCe"/>
                         <outlet property="collectionViewForEffects" destination="PRU-sc-iAp" id="d5g-Cg-ugi"/>
                         <outlet property="collectionViewForFilters" destination="2wU-7k-Vrj" id="qs0-vz-3Dh"/>
+                        <outlet property="confettiView" destination="hcf-fT-rjY" id="Zgw-Rp-xXU"/>
                         <outlet property="currentTimeLabel" destination="CSn-mD-BCj" id="nln-OQ-Z0H"/>
                         <outlet property="filterImageView" destination="GJb-8H-07L" id="AwE-Qb-MYo"/>
                         <outlet property="label" destination="0u4-ZC-Ys5" id="yAy-KE-LUo"/>
@@ -227,12 +236,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ea-Hh-aks" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2909" y="-40"/>
+            <point key="canvasLocation" x="2907.6335877862593" y="-40.140845070422536"/>
         </scene>
         <!--Preview View Controller-->
         <scene sceneID="e9C-4g-ndK">
             <objects>
-                <viewController storyboardIdentifier="PreviewViewController" id="wVf-34-f5c" customClass="PreviewViewController" customModule="ARDemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PreviewViewController" id="wVf-34-f5c" customClass="PreviewViewController" customModule="ArtiFace" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RZw-dW-Wj7">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -293,7 +302,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewForEditCell" id="0oy-JC-LUP" customClass="CollectionViewForEditCell" customModule="ARDemoApp" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewForEditCell" id="0oy-JC-LUP" customClass="CollectionViewForEditCell" customModule="ArtiFace" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="10.666666666666666" width="128" height="69"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fW2-0J-7HX">
@@ -413,7 +422,7 @@
         <!--Avatar View Controller-->
         <scene sceneID="UFD-1b-unO">
             <objects>
-                <viewController id="PMj-n6-AWN" customClass="AvatarViewController" customModule="ARDemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="PMj-n6-AWN" customClass="AvatarViewController" customModule="ArtiFace" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qO4-gH-0Wm">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -442,7 +451,7 @@
         <!--Filters View Controller-->
         <scene sceneID="CwZ-cT-UPC">
             <objects>
-                <viewController id="O1K-XA-IPc" customClass="CIFiltersViewController" customModule="ARDemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="O1K-XA-IPc" customClass="CIFiltersViewController" customModule="ArtiFace" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vVq-Wl-6YU">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -452,7 +461,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RHt-OC-P7W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5583.9694656488546" y="-32.394366197183103"/>
+            <point key="canvasLocation" x="5332" y="-32"/>
+        </scene>
+        <!--Audio Recording View Controller-->
+        <scene sceneID="VHW-lh-udW">
+            <objects>
+                <viewController id="tNM-Mf-TIs" customClass="AudioRecordingViewController" customModule="ArtiFace" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hbv-mM-rMw">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Zyz-C1-mVH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9HH-pG-CB4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6375" y="-32"/>
         </scene>
     </scenes>
     <resources>
